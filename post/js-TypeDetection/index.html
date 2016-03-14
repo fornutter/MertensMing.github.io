@@ -1,0 +1,896 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="类型识别," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="标准类型和对象类型
+标准类型有：undefined Null Boolean Date Number Object
+对象类型（构造器类型）：Boolean Date Number Object Array Date Error Function RegExp
+
+类型识别
+typeof
+Object.prorotype.toString
+constructor
+instanceof">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类型识别的四个方法">
+<meta property="og:url" content="http://MertensMing.github.io/post/js-TypeDetection/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="标准类型和对象类型
+标准类型有：undefined Null Boolean Date Number Object
+对象类型（构造器类型）：Boolean Date Number Object Array Date Error Function RegExp
+
+类型识别
+typeof
+Object.prorotype.toString
+constructor
+instanceof">
+<meta property="og:image" content="http://static.zybuluo.com/mertens/mwr1va7r59qbn7f3lf4szcpk/pic.jpg">
+<meta property="og:updated_time" content="2016-03-06T14:27:37.773Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类型识别的四个方法">
+<meta name="twitter:description" content="标准类型和对象类型
+标准类型有：undefined Null Boolean Date Number Object
+对象类型（构造器类型）：Boolean Date Number Object Array Date Error Function RegExp
+
+类型识别
+typeof
+Object.prorotype.toString
+constructor
+instanceof">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 类型识别的四个方法 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                类型识别的四个方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-06T22:26:07+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/js-TypeDetection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/js-TypeDetection/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u6807_u51C6_u7C7B_u578B_u548C_u5BF9_u8C61_u7C7B_u578B"><a href="#u6807_u51C6_u7C7B_u578B_u548C_u5BF9_u8C61_u7C7B_u578B" class="headerlink" title="标准类型和对象类型"></a>标准类型和对象类型</h2><ul>
+<li>标准类型有：<code>undefined</code> <code>Null</code> <code>Boolean</code> <code>Date</code> <code>Number</code> <code>Object</code></li>
+<li>对象类型（构造器类型）：<code>Boolean</code> <code>Date</code> <code>Number</code> <code>Object</code> <code>Array</code> <code>Date</code> <code>Error</code> <code>Function</code> <code>RegExp</code></li>
+</ul>
+<h2 id="u7C7B_u578B_u8BC6_u522B"><a href="#u7C7B_u578B_u8BC6_u522B" class="headerlink" title="类型识别"></a>类型识别</h2><ul>
+<li><code>typeof</code></li>
+<li><code>Object.prorotype.toString</code></li>
+<li><code>constructor</code></li>
+<li><code>instanceof</code></li>
+</ul>
+<a id="more"></a>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><ul>
+<li>可以是标准类型</li>
+<li>不可识别具体的对象类型（Function 除外）<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> operand</span><br><span class="line"><span class="comment">// operand 是一个表达式，表示对象或原始值，其类型被返回</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="typeof__u53EF_u80FD_u7684_u8FD4_u56DE_u503C"><a href="#typeof__u53EF_u80FD_u7684_u8FD4_u56DE_u503C" class="headerlink" title="typeof 可能的返回值"></a><code>typeof</code> 可能的返回值</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Undefined</td>
+<td style="text-align:left">“undefined”</td>
+</tr>
+<tr>
+<td style="text-align:left">Null</td>
+<td style="text-align:left">“object”</td>
+</tr>
+<tr>
+<td style="text-align:left">布尔值</td>
+<td style="text-align:left">“boolean”</td>
+</tr>
+<tr>
+<td style="text-align:left">数值</td>
+<td style="text-align:left">“number”</td>
+</tr>
+<tr>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">“string”</td>
+</tr>
+<tr>
+<td style="text-align:left">Symbol (ECMAScript 6 新增)</td>
+<td style="text-align:left">“symbol”</td>
+</tr>
+<tr>
+<td style="text-align:left">宿主对象(JS环境提供的，比如浏览器)</td>
+<td style="text-align:left">Implementation-dependent</td>
+</tr>
+<tr>
+<td style="text-align:left">函数对象 (implements [[Call]] in ECMA-262 terms)</td>
+<td style="text-align:left">“function”</td>
+</tr>
+<tr>
+<td style="text-align:left">任何其他对象</td>
+<td style="text-align:left">“object”</td>
+</tr>
+</tbody>
+</table>
+<h3 id="u5E38_u89C4_u7528_u6CD5"><a href="#u5E38_u89C4_u7528_u6CD5" class="headerlink" title="常规用法"></a>常规用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Numbers</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">37</span> === <span class="string">'number'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="number">3.14</span> === <span class="string">'number'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>.LN2 === <span class="string">'number'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">Infinity</span> === <span class="string">'number'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">'number'</span>; <span class="comment">// 尽管NaN是"Not-A-Number"的缩写,意思是"不是一个数字"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="number">1</span>) === <span class="string">'number'</span>; <span class="comment">// 不要这样使用!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Strings</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">""</span> === <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"bla"</span> === <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">typeof</span> (<span class="keyword">typeof</span> <span class="number">1</span>) === <span class="string">'string'</span>; <span class="comment">// typeof返回的肯定是一个字符串</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">String</span>(<span class="string">"abc"</span>) === <span class="string">'string'</span>; <span class="comment">// 不要这样使用!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Booleans</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> === <span class="string">'boolean'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">false</span> === <span class="string">'boolean'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>) === <span class="string">'boolean'</span>; <span class="comment">// 不要这样使用!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbols</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>() === <span class="string">'symbol'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>(<span class="string">'foo'</span>) === <span class="string">'symbol'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>.iterator === <span class="string">'symbol'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> === <span class="string">'undefined'</span>;</span><br><span class="line"><span class="keyword">typeof</span> blabla === <span class="string">'undefined'</span>; <span class="comment">// 一个未定义的变量,或者一个定义了却未赋初值的变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Objects</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;a:<span class="number">1</span>&#125; === <span class="string">'object'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Array.isArray或者Object.prototype.toString.call方法可以从基本的对象中区分出数组类型</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>] === <span class="string">'object'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>() === <span class="string">'object'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的容易令人迷惑，不要这样使用！</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>) === <span class="string">'object'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>) ==== <span class="string">'object'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>) === <span class="string">'object'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; === <span class="string">'function'</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>.sin === <span class="string">'function'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="u5173_u4E8E_null"><a href="#u5173_u4E8E_null" class="headerlink" title="关于 null"></a>关于 null</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'object'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="u5173_u4E8E_u6B63_u5219_uFF0C_u5728_u67D0_u4E9B_u6D4F_u89C8_u5668_u4E2D_u4E0D_u7B26_u5408_u6807_u51C6"><a href="#u5173_u4E8E_u6B63_u5219_uFF0C_u5728_u67D0_u4E9B_u6D4F_u89C8_u5668_u4E2D_u4E0D_u7B26_u5408_u6807_u51C6" class="headerlink" title="关于正则，在某些浏览器中不符合标准"></a>关于正则，在某些浏览器中不符合标准</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> /s/ === <span class="string">'function'</span>; <span class="comment">// Chrome 1-12 , 不符合 ECMAScript 5.1</span></span><br><span class="line"><span class="keyword">typeof</span> /s/ === <span class="string">'object'</span>; <span class="comment">// Firefox 5+ , 符合 ECMAScript 5.1</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h2><ul>
+<li><code>toString()</code> 方法返回一个代表该对象的字符串。</li>
+<li>可以识别标准类型及内置对象类型（例如，Object, Date, Array）</li>
+<li>不能识别自定义对象类型</li>
+</ul>
+<h3 id="u8BED_u6CD5-1"><a href="#u8BED_u6CD5-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.toString()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当对象需要转换为字符串时，会调用它的 <code>toString()</code> 方法。</li>
+<li>默认情况下，每个对象都会从 <code>Object</code>上继承到 <code>toString()</code> 方法，如果这个方法没有被这个对象自身或者更接近的上层原型上的同名方法覆盖(遮蔽)，则调用该对象的 <code>toString()</code> 方法时会返回 <code>&quot;[object type]&quot;</code> ，这里的字符串 <code>type</code> 表示了一个对象类型。</li>
+<li>下面的代码演示了这一点：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.toString();           <span class="comment">// 返回了[object Object]</span></span><br></pre></td></tr></table></figure>
+<h3 id="u4F7F_u7528_toString_28_29__u65B9_u6CD5_u6765_u68C0_u6D4B_u5BF9_u8C61_u7C7B_u578B"><a href="#u4F7F_u7528_toString_28_29__u65B9_u6CD5_u6765_u68C0_u6D4B_u5BF9_u8C61_u7C7B_u578B" class="headerlink" title="使用 toString() 方法来检测对象类型"></a>使用 <code>toString()</code> 方法来检测对象类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>); <span class="comment">// [object Date]</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">String</span>); <span class="comment">// [object String]</span></span><br><span class="line">toString.call(<span class="built_in">Math</span>); <span class="comment">// [object Math]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Since JavaScript 1.8.5</span></span><br><span class="line">toString.call(<span class="literal">undefined</span>); <span class="comment">// [object Undefined]</span></span><br><span class="line">toString.call(<span class="literal">null</span>); <span class="comment">// [object Null]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-prototype-constructor"><a href="#Object-prototype-constructor" class="headerlink" title="Object.prototype.constructor"></a>Object.prototype.constructor</h2><ul>
+<li>可以识别标准类型（Undefined/Null 除外）</li>
+<li>可识别内置对象类型</li>
+<li>可识别自定义对象类型<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getConstructiorName</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> obj &amp;&amp; obj.constructor &amp;&amp; obj.constructor.toString().match(<span class="regexp">/function\s*([^(]*)/</span>)[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">getConstructiorName([]) === <span class="string">"Array"</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>不可判别原始类型</li>
+<li>可判别内置对象类型</li>
+<li>可判别自定义对象类型<br>###语法</li>
+<li><code>object instanceof constructor</code></li>
+<li><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链上。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>)</span>&#123;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params"></span>)</span>&#123;&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line"><span class="comment">// true，因为 Object.getPrototypeOf(o) === C.prototype</span></span><br><span class="line">o <span class="keyword">instanceof</span> C; </span><br><span class="line"></span><br><span class="line"><span class="comment">// false，因为 D.prototype不在o的原型链上</span></span><br><span class="line">o <span class="keyword">instanceof</span> D; </span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true,因为Object.prototype.isPrototypeOf(o)返回true</span></span><br><span class="line">C.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true,同上</span></span><br><span class="line"></span><br><span class="line">C.prototype = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line">o2 <span class="keyword">instanceof</span> C; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// false,C.prototype指向了一个空对象,这个空对象不在o的原型链上.</span></span><br><span class="line"></span><br><span class="line">D.prototype = <span class="keyword">new</span> C(); <span class="comment">// 继承</span></span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> D();</span><br><span class="line">o3 <span class="keyword">instanceof</span> D; <span class="comment">// true</span></span><br><span class="line">o3 <span class="keyword">instanceof</span> C; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="u4E0B_u9762_u6211_u4EEC_u5199_u4E00_u4E2AHTML_u6765_u68C0_u9A8C_u4E00_u4E0B_uFF1A"><a href="#u4E0B_u9762_u6211_u4EEC_u5199_u4E00_u4E2AHTML_u6765_u68C0_u9A8C_u4E00_u4E0B_uFF1A" class="headerlink" title="下面我们写一个HTML来检验一下："></a>下面我们写一个HTML来检验一下：</h2><p><img src="http://static.zybuluo.com/mertens/mwr1va7r59qbn7f3lf4szcpk/pic.jpg" alt="js 类型检测的四个方法"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>JavaScript类型判断<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="class">.red</span><span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">background-color</span>:<span class="value">red</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="comment">/* Standard Type */</span></span><br><span class="line">        <span class="keyword">var</span> a;    <span class="comment">//undefined</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="built_in">document</span>.getElementById(<span class="string">"no_exist_element"</span>); <span class="comment">//null</span></span><br><span class="line">        <span class="keyword">var</span> c = <span class="literal">true</span>;    <span class="comment">//Boolean</span></span><br><span class="line">        <span class="keyword">var</span> d = <span class="number">1</span>;    <span class="comment">//Number</span></span><br><span class="line">        <span class="keyword">var</span> e = <span class="string">"str"</span>;     <span class="comment">//String</span></span><br><span class="line">        <span class="keyword">var</span> f = &#123;name : <span class="string">"Tom"</span>&#125;;    <span class="comment">//Object</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Object Type */</span></span><br><span class="line">        <span class="keyword">var</span> g = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);    <span class="comment">//Boolean Object</span></span><br><span class="line">        <span class="keyword">var</span> h = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>);    <span class="comment">//Number Object</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"str"</span>);    <span class="comment">//String Object</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;name : <span class="string">"Tom"</span>&#125;); <span class="comment">//Object Object</span></span><br><span class="line">        <span class="keyword">var</span> k = <span class="keyword">new</span> <span class="built_in">Array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);    <span class="comment">//Array Object</span></span><br><span class="line">        <span class="keyword">var</span> l = <span class="keyword">new</span> <span class="built_in">Date</span>();    <span class="comment">//Date Object</span></span><br><span class="line">        <span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Error</span>();</span><br><span class="line">        <span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">Function</span>();</span><br><span class="line">        <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\d"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Self-Defined Object Type */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.x = x;</span><br><span class="line">          <span class="keyword">this</span>.y = y;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Point.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.x += x;</span><br><span class="line">          <span class="keyword">this</span>.y += y;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Use the Prototype.toString() to judge the type */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, -<span class="number">1</span>).toLowerCase();</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">table</span> <span class="attribute">border</span>=<span class="value">"1"</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>typeof<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>toString<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>constructor<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>instanceof<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>undefined<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> a)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(a))</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(a.constructor)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(a <span class="keyword">instanceof</span> <span class="string">"undefined"</span>)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Null<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> b);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(b));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(b.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(b <span class="keyword">instanceof</span> <span class="string">"null"</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Boolean<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> c);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(c));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(c.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(c <span class="keyword">instanceof</span> <span class="string">"boolean"</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Number<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> d);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(d));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(d.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(d <span class="keyword">instanceof</span> <span class="string">"number"</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>String<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> e);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(e));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(e.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(e <span class="keyword">instanceof</span> <span class="string">"string"</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> f);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(f));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(f.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(f <span class="keyword">instanceof</span> <span class="string">"object"</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span><span class="tag">&lt;<span class="title">td</span> <span class="attribute">colspan</span>=<span class="value">"5"</span>&gt;</span>-----------------------<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Boolean Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> g);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(g));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(g.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(g <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Number Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> h);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(h));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(h.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(h <span class="keyword">instanceof</span> <span class="built_in">Number</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>String Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> i);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(i));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(i.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(i <span class="keyword">instanceof</span> <span class="built_in">String</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Object Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> j);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(j));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(j.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(j <span class="keyword">instanceof</span> <span class="built_in">Object</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Array Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> k);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(k));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(k.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(k <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Date Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> l);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(l));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(l.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(l <span class="keyword">instanceof</span> <span class="built_in">Date</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Error Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> m);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(m));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(m.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(m <span class="keyword">instanceof</span> <span class="built_in">Error</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Function Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> n);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(n));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(n.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(n <span class="keyword">instanceof</span> <span class="built_in">Function</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>RegExp Object<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> o);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(o));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(o.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(o <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span><span class="tag">&lt;<span class="title">td</span> <span class="attribute">colspan</span>=<span class="value">"5"</span>&gt;</span>-----------------------<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span>Point Objct<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> p);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(type(p));</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(p.constructor);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(p <span class="keyword">instanceof</span> Point);</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/类型识别/" rel="tag">#类型识别</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/js-RegExpBasis/" rel="next" title="正则表达式基础笔记">
+                <i class="fa fa-chevron-left"></i> 正则表达式基础笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/BOM/" rel="prev" title="BOM">
+                BOM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/js-TypeDetection/"
+     data-title="类型识别的四个方法"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/js-TypeDetection/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/js-TypeDetection/"
+           data-title="类型识别的四个方法" data-url="http://MertensMing.github.io/post/js-TypeDetection/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6807_u51C6_u7C7B_u578B_u548C_u5BF9_u8C61_u7C7B_u578B"><span class="nav-number">1.</span> <span class="nav-text">标准类型和对象类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7C7B_u578B_u8BC6_u522B"><span class="nav-number">2.</span> <span class="nav-text">类型识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof"><span class="nav-number">3.</span> <span class="nav-text">typeof</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof__u53EF_u80FD_u7684_u8FD4_u56DE_u503C"><span class="nav-number">3.2.</span> <span class="nav-text">typeof 可能的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E38_u89C4_u7528_u6CD5"><span class="nav-number">3.3.</span> <span class="nav-text">常规用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8E_null"><span class="nav-number">3.4.</span> <span class="nav-text">关于 null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8E_u6B63_u5219_uFF0C_u5728_u67D0_u4E9B_u6D4F_u89C8_u5668_u4E2D_u4E0D_u7B26_u5408_u6807_u51C6"><span class="nav-number">3.5.</span> <span class="nav-text">关于正则，在某些浏览器中不符合标准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-toString"><span class="nav-number">4.</span> <span class="nav-text">Object.prototype.toString</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-1"><span class="nav-number">4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528_toString_28_29__u65B9_u6CD5_u6765_u68C0_u6D4B_u5BF9_u8C61_u7C7B_u578B"><span class="nav-number">4.2.</span> <span class="nav-text">使用 toString() 方法来检测对象类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-constructor"><span class="nav-number">5.</span> <span class="nav-text">Object.prototype.constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof"><span class="nav-number">6.</span> <span class="nav-text">instanceof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E0B_u9762_u6211_u4EEC_u5199_u4E00_u4E2AHTML_u6765_u68C0_u9A8C_u4E00_u4E0B_uFF1A"><span class="nav-number">7.</span> <span class="nav-text">下面我们写一个HTML来检验一下：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

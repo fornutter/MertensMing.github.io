@@ -1,0 +1,76 @@
+/*
+* @Author: Administrator
+* @Date:   2016-03-10 11:23:01
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-03-10 11:32:02
+*/
+
+
+/*侧栏*/
+.side-bar
+{
+    width: 223px;
+}
+/* 播放视频 */
+.m-video .u-tt,
+.m-hot .hot-tt
+{
+    font-size: 16px;
+    line-height: 22px;
+
+    padding: 17px 20px;
+
+    border-bottom: 1px solid #f4f4f4;
+}
+.m-video {
+    box-shadow: 1px 0 0 #f6f6f6, -1px 0 0 #f6f6f6, 0 1px 1px #eaeaea;
+}
+.m-video .u-text
+{
+    font-size: 14px;
+    line-height: 22px;
+
+    padding: 20px 21px 5px 22px;
+}
+.m-video .u-play
+{
+    display: block;
+
+    padding-bottom: 20px;
+    padding-left: 22px;
+}
+
+/* 热门排行 */
+.m-hot
+{
+    margin-top: 21px;
+
+    border-bottom: 1px solid #fff;
+
+    box-shadow: 1px 0 0 #f6f6f6, -1px 0 0 #f6f6f6, 0 1px 1px #eaeaea;
+}
+.m-hot .hot-item
+{
+    margin: 20px;
+}
+.m-hot .u-img
+{
+    font-size: 0;
+
+    width: 50px;
+    height: 50px;
+}
+.m-hot .msg-wrap
+{
+    width: 121px;
+    margin-left: 12px;
+}
+.m-hot .u-count
+{
+    margin-top: 5px;
+
+    text-indent: 16px;
+
+    color: #999;
+    background: url(temp/detail-count.png) no-repeat 1px 5px;
+}

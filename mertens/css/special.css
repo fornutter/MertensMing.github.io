@@ -1,0 +1,751 @@
+/*
+* @Author: Administrator
+* @Date:   2016-02-28 10:45:22
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-03-10 11:19:30
+*/
+
+/*包裹区域*/
+.hd-bar-wrap,
+.hd-wrap,
+.main-wrap,
+.links-wrap,
+.footer-wrap
+{
+    width: 1206px;
+    margin: 0 auto;
+}
+
+/*顶部提示条*/
+.m-hd-bar
+{
+    line-height: 36px;
+
+    background-color: #f3f3f3;
+}
+
+.m-hd-bar .not-prompt
+{
+    width: 65px;
+
+    color: #333;
+    background: url(temp/hd-bar.png) no-repeat 0 13px;
+}
+
+/*头部*/
+.hd-wrap
+{
+    padding: 30px 0 37px;
+}
+
+/*网站logo*/
+.website-logo
+{
+    width: 234px;
+    height: 22px;
+    padding-right: 31px;
+
+    background: url(temp/logo.png) no-repeat;
+}
+
+/*关注*/
+.m-follow
+{
+    /*19 / 12 = 1.5833333*/
+    line-height: 1.5833333;
+}
+
+.m-follow .follow
+{
+    width: 54px;
+    height: 19px;
+
+    text-indent: 22px;
+
+    color: #fff;
+    border: 1px solid #21a557;
+    border-radius: 1px;
+    background: #21a557 url(temp/follow.png) no-repeat 9px 6px;
+}
+
+.m-follow .follow:hover
+{
+    background-color: #2fb556;
+}
+
+.m-follow .u-msg
+{
+    width: 104px;
+    height: 19px;
+
+    text-indent: 22px;
+
+    border: 1px solid #fafafa;
+    background: #f8f8f8 url(temp/follow-1.png) no-repeat 6px 5px;
+}
+
+.m-follow .u-msg:hover
+{
+    background-color: #fff;
+}
+
+.m-follow .u-msg .unfollow
+{
+    margin-left: 18px;
+
+    color: #cecece;
+}
+
+.m-follow .unfollow:hover
+{
+    text-decoration: underline;
+
+    color: #21a557;
+}
+
+.m-follow .fans
+{
+    line-height: 1.75;
+
+    margin-left: 14px;
+
+    color: #666;
+}
+
+/*导航列表*/
+.m-global-nav li
+{
+    font-size: 16px;
+
+    float: left;
+}
+
+.m-global-nav li:first-child
+{
+    margin-left: 0;
+}
+
+.m-global-nav li
+{
+    margin-left: 56px;
+}
+
+.m-global-nav li > a
+{
+    color: #666;
+}
+
+.m-global-nav li > a:hover
+{
+    color: #21a557;
+}
+
+/*搜索框*/
+.m-search
+{
+    margin-left: 30px;
+}
+
+.m-search .search-btn
+{
+    width: 19px;
+    height: 19px;
+    margin-top: 5px;
+
+    outline: none;
+    background-image: url(temp/search.png);
+}
+
+.m-search .search-btn:hover
+{
+    background-image: url(temp/search-1.png);
+}
+
+/*登录弹窗*/
+.login-wrap
+{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.m-login
+{
+    position: relative;
+    top: 25%;
+
+    width: 387px;
+    height: 288px;
+    margin: 0 auto;
+    padding-top: 26px;
+    padding-left: 40px;
+
+    background-color: #fff;
+}
+
+.m-login legend
+{
+    font-size: 18px;
+}
+
+.m-login input
+{
+    display: block;
+
+    width: 283px;
+    height: 43px;
+    margin-top: 15px;
+    padding-left: 10px;
+
+    border: 1px solid #f0f0f0;
+    background-color: #fafafa;
+    box-shadow: inset 1px 1px 1px  #ebebeb;
+}
+
+.m-login .u-submit
+{
+    font-size: 16px;
+
+    width: 293px;
+    height: 46px;
+    margin-top: 28px;
+
+    color: #fff;
+    background-image: url(temp/login.png);
+    box-shadow: 1px 1px 1px #e3ece6;
+}
+
+.m-login .u-close
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: block;
+
+    width: 10px;
+    height: 10px;
+
+    background-image: url(temp/login-1.png);
+}
+
+.m-login .u-tip
+{
+    width: 293px;
+    margin-top: 20px;
+
+    color: #eb4545;
+}
+
+/*轮播图*/
+
+/*轮播图自适应屏幕宽度*/
+.m-slide img
+{
+    width: 100%;
+}
+
+.m-slide
+{
+    /*消除img元素底下的空隙*/
+    line-height: 0;
+
+    position: relative;
+}
+
+/* 多点式幻灯指示控制器-默认底部居中 */
+.u-pointer
+{
+    line-height: 0;
+
+    position: absolute;
+    z-index: 50;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+
+    text-align: center;
+}
+
+.u-pointer i
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin: 0 0 0 10px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    background: #fff;
+}
+
+.u-pointer i:first-child
+{
+    margin-left: 0;
+}
+
+.u-pointer i:hover
+{
+    background: #ccc;
+}
+
+.u-pointer i.z-crt
+{
+    background: #000;
+}
+
+/*友情链接介绍*/
+.m-friend-links .item
+{
+    font-size: 14px;
+    line-height: 1.7142857142857;
+
+    position: relative;
+
+    box-sizing: border-box;
+    width: 33.3333333%;
+    margin: 55px 0;
+    padding-left: 100px;
+
+    color: #666;
+}
+
+.m-friend-links .u-tt
+{
+    font-size: 22px;
+
+    color: #333;
+}
+
+.m-friend-links .u-text
+{
+    width: 242px;
+    margin: 7px 0 25px;
+}
+
+.m-friend-links .u-logo
+{
+    position: absolute;
+    top: 6px;
+    left: 0;
+
+    width: 80px;
+    height: 80px;
+}
+
+.m-friend-links a:hover
+{
+    text-decoration: underline;
+}
+
+.m-friend-links .logo1
+{
+    background-image: url(temp/friend-links.png);
+}
+
+.m-friend-links .logo2
+{
+    background: url(temp/friend-links.png) 0 -80px;
+}
+
+.m-friend-links .logo3
+{
+    background: url(temp/friend-links.png) 0 -160px;
+}
+
+/*给办公区域、选项卡、侧栏添加背景色*/
+.bg-color
+{
+    background-color: #f8f8f8;
+}
+
+/*办公区域水平滚动*/
+.slider-carousel
+{
+    line-height: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 220px;
+    margin-bottom: 80px;
+    padding-top: 1px;
+}
+
+.slide-box-wrap
+{
+    width: 99999px;
+}
+
+/*选项卡*/
+.m-tab
+{
+    width: 960px;
+}
+
+/*课程类型*/
+.tab-nav
+{
+    margin-bottom: 30px;
+
+    box-shadow: 1px 1px 1px #eaeaea;
+}
+
+.tab-nav li
+{
+    font-size: 20px;
+    line-height: 50px;
+
+    width: 200px;
+
+    background-color: #fff;
+}
+
+.tab-nav a
+{
+    color: #666;
+}
+
+/*当前选项卡*/
+.tab-nav .z-crt
+{
+    background-color: #39a030;
+}
+
+.tab-nav .z-crt a
+{
+    color: #fff;
+}
+
+/*产品设计和变成语言下的选项卡*/
+.m-tab .u-tab-pane
+{
+    margin-left: -20px;
+}
+
+/*所有课程*/
+.m-commodities
+{
+    overflow: hidden; /*BFC*/
+
+    width: 980px;
+}
+
+/*每个课程*/
+.m-commodities li
+{
+    float: left;
+
+    width: 223px; /*宽度 width + border(1px 1px) = 225px*/
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+    border: 1px solid #fff;
+    background-color: #fff;
+    box-shadow: 1px 0 0 #f2f2f2, -1px 0 0 #f2f2f2, 0 1px 1px #f2f2f2;
+}
+
+/* 图片 */
+.commodity-msg img,
+.commodity-detail img
+{
+    line-height: 0;
+
+    width: 224px;
+    height: 124px;
+}
+
+/* 课程简述 */
+.commodity-msg
+{
+    height: 228px;
+}
+
+/* 设置简介的 margin-left */
+.commodity-msg .u-name,
+.commodity-msg .u-provider,
+.commodity-msg .u-count,
+.commodity-msg .u-price
+{
+    margin: 0 4px;
+}
+
+/* 简介课程名称 */
+.commodity-msg .u-name
+{
+    padding-top: 6px;
+}
+
+/* 简介提供者 */
+.commodity-msg .u-provider
+{
+    padding-top: 2px;
+
+    color: #999;
+}
+
+/* 简介学习人数 */
+.commodity-msg .u-count
+{
+    font-size: 6px;
+    line-height: 16px;
+
+    width: 38px;
+    margin-top: 6px;
+
+    text-indent: 14px;
+
+    color: #bbb;
+    border: 1px solid #f4f4f4;
+    border-radius: 1px;
+    background: url(temp/commodity-price.png) no-repeat 0 2px;
+}
+
+/* 简介价格 */
+.commodity-msg .u-price
+{
+    font-weight: bold;
+
+    margin-top: 6px;
+
+    color: #ff3f00;
+}
+
+/* 课程详述 */
+.commodity-detail
+{
+    /* 使用 absolute + margin 设置课程弹窗悬浮在上面 */
+    position: absolute;
+
+    width: 480px;
+    height: 240px;
+    margin-top: -238px;
+    margin-left: -10px;
+
+    background-color: #fff;
+    box-shadow: 1px 0 2px #e3e2e2, -1px 0 2px #e3e2e2, 0 1px 1px #e3e2e2;
+}
+
+.commodity-detail .u-img
+{
+    font-size: 0;
+
+    margin: 10px 0 0 10px;
+}
+.commodity-detail .detail-wrap
+{
+    width: 216px;
+    height: 124px;
+    margin: 10px 10px 0 20px;
+
+    color: #666;
+}
+
+.commodity-detail .detail-wrap .u-name
+{
+    font-size: 18px;
+    line-height: 20px;
+
+    color: #333;
+}
+.commodity-detail .detail-wrap .u-count
+{
+    margin-top: 13px;
+
+    text-indent: 18px;
+
+    background: url(temp/detail-count.png) no-repeat 3px 5px;
+}
+.commodity-detail .detail-wrap .u-provider
+{
+    margin-top: 6px;
+}
+.commodity-detail .u-description
+{
+    font-size: 14px;
+    line-height: 24px;
+
+    float: left;
+
+    width: 440px;
+    height: 46px;
+    margin-top: 20px;
+    padding: 17px 0 19px;
+    padding: 20px 20px;
+
+    color: #666;
+    background-color: #f8f8f8;
+}
+/* 翻页器 */
+.m-pagination
+{
+    display: inline-block;
+
+    margin-bottom: 120px;
+}
+.m-pagination li
+{
+    float: left;
+
+    margin-left: 10px;
+    padding: 0 5px;
+}
+.m-pagination a
+{
+    color: #666;
+}
+.m-pagination a:hover
+{
+    color: #39a030;
+}
+.m-pagination .u-page,
+.m-pagination .z-crt
+{
+    background-color: #9dd8b1;
+}
+.m-pagination .u-page
+{
+    padding: 0 10px;
+}
+.m-pagination .u-page > a,
+.m-pagination .z-crt > a
+{
+    color: #fff;
+}
+
+/*侧栏*/
+.side-bar
+{
+    width: 223px;
+}
+
+.m-video,
+.m-hot
+{
+    background-color: #fff;
+}
+
+/* 播放视频 */
+.m-video .u-tt,
+.m-hot .hot-tt
+{
+    font-size: 16px;
+    line-height: 22px;
+
+    padding: 17px 20px;
+
+    border-bottom: 1px solid #f4f4f4;
+}
+.m-video {
+	box-shadow: 1px 0 0 #f6f6f6, -1px 0 0 #f6f6f6, 0 1px 1px #eaeaea;
+}
+.m-video .u-text
+{
+    font-size: 14px;
+    line-height: 22px;
+
+    padding: 20px 21px 5px 22px;
+}
+.m-video .u-play
+{
+    display: block;
+
+    padding-bottom: 20px;
+    padding-left: 22px;
+}
+
+/* 热门排行 */
+.m-hot
+{
+    margin-top: 21px;
+
+    border-bottom: 1px solid #fff;
+
+    box-shadow: 1px 0 0 #f6f6f6, -1px 0 0 #f6f6f6, 0 1px 1px #eaeaea;
+}
+.m-hot .hot-item
+{
+    margin: 20px;
+}
+.m-hot .u-img
+{
+    font-size: 0;
+
+    width: 50px;
+    height: 50px;
+}
+.m-hot .msg-wrap
+{
+    width: 121px;
+    margin-left: 12px;
+}
+.m-hot .u-count
+{
+    margin-top: 5px;
+
+    text-indent: 16px;
+
+    color: #999;
+    background: url(temp/detail-count.png) no-repeat 1px 5px;
+}
+
+/* 页脚 */
+
+.g-footer
+{
+    color: #818587;
+    background-color: #2c3339;
+}
+.g-footer a
+{
+    color: #818587;
+}
+.g-footer .msg-wrap
+{
+    margin-top: 93px;
+    margin-left: 53px;
+}
+.g-footer .msg-wrap .copyright
+{
+    font-size: 12.5px;
+    line-height: 25x;
+
+    margin-top: 18px;
+}
+
+/* 友情链接 */
+.m-links {
+	margin-left: 102px;
+	margin: 82px 0 100px 102px;
+}
+.m-links a:hover {
+	text-decoration: underline;
+}
+.m-links .u-tt {
+	font-size: 12.5px;
+	line-height: 29px;
+}
+.m-links dd {
+	line-height: 29px;
+	font-size: 15px;
+}
+
+.m-links .weibo {
+	display: block;
+	width: 20px;
+	height: 16px;
+	background: url(temp/weibo.png);
+	position: absolute;
+	margin-left: 40px;
+	margin-top: -21px;
+}

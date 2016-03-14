@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="浏览器支持情况CSS3&amp;amp;HTML5各浏览器支持情况一览表
+添加必要的浏览器前缀Chrome 和 Safari 浏览器：-webkit
+Firefox 浏览器：-moz
+IE 浏览器：-ms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS最佳实践之CSS3 相关最佳实践">
+<meta property="og:url" content="http://MertensMing.github.io/post/best-practices-css3/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="浏览器支持情况CSS3&amp;amp;HTML5各浏览器支持情况一览表
+添加必要的浏览器前缀Chrome 和 Safari 浏览器：-webkit
+Firefox 浏览器：-moz
+IE 浏览器：-ms">
+<meta property="og:updated_time" content="2016-02-27T14:43:46.141Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS最佳实践之CSS3 相关最佳实践">
+<meta name="twitter:description" content="浏览器支持情况CSS3&amp;amp;HTML5各浏览器支持情况一览表
+添加必要的浏览器前缀Chrome 和 Safari 浏览器：-webkit
+Firefox 浏览器：-moz
+IE 浏览器：-ms">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS最佳实践之CSS3 相关最佳实践 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS最佳实践之CSS3 相关最佳实践
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-27T20:59:16+08:00" content="2016-02-27">
+              2016-02-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端规范/" itemprop="url" rel="index">
+                    <span itemprop="name">前端规范</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/best-practices-css3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/best-practices-css3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u6D4F_u89C8_u5668_u652F_u6301_u60C5_u51B5"><a href="#u6D4F_u89C8_u5668_u652F_u6301_u60C5_u51B5" class="headerlink" title="浏览器支持情况"></a>浏览器支持情况</h2><p><a href="http://www.zhangxinxu.com/wordpress/2010/04/css3html5%E5%90%84%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E4%B8%80%E8%A7%88%E8%A1%A8/" target="_blank" rel="external">CSS3&amp;HTML5各浏览器支持情况一览表</a></p>
+<h2 id="u6DFB_u52A0_u5FC5_u8981_u7684_u6D4F_u89C8_u5668_u524D_u7F00"><a href="#u6DFB_u52A0_u5FC5_u8981_u7684_u6D4F_u89C8_u5668_u524D_u7F00" class="headerlink" title="添加必要的浏览器前缀"></a>添加必要的浏览器前缀</h2><p>Chrome 和 Safari 浏览器：<code>-webkit</code></p>
+<p>Firefox 浏览器：<code>-moz</code></p>
+<p>IE 浏览器：<code>-ms</code></p>
+<a id="more"></a>
+<h2 id="u5B9E_u8DF5_u65B9_u6848"><a href="#u5B9E_u8DF5_u65B9_u6848" class="headerlink" title="实践方案"></a>实践方案</h2><h3 id="u4F7F_u7528_u5DE5_u5177_u6765_u6DFB_u52A0_CSS__u5C5E_u6027_u5B9A_u4E49_u7684_u6D4F_u89C8_u5668_u524D_u7F00"><a href="#u4F7F_u7528_u5DE5_u5177_u6765_u6DFB_u52A0_CSS__u5C5E_u6027_u5B9A_u4E49_u7684_u6D4F_u89C8_u5668_u524D_u7F00" class="headerlink" title="使用工具来添加 CSS 属性定义的浏览器前缀"></a>使用工具来添加 CSS 属性定义的浏览器前缀</h3><p>编码阶段不需要为 CSS 属性定义添加任何的浏览器前缀，可以在开发完成后使用工具来添加 CSS 属性定义的浏览器前缀。</p>
+<p>一款在线工具：Prefixr</p>
+<h3 id="u501F_u52A9_CSS__u9884_u5904_u7406_u6280_u672F_uFF0C_u7ED9_CSS__u5B9A_u4E49_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00"><a href="#u501F_u52A9_CSS__u9884_u5904_u7406_u6280_u672F_uFF0C_u7ED9_CSS__u5B9A_u4E49_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00" class="headerlink" title="借助 CSS 预处理技术，给 CSS 定义添加浏览器前缀"></a>借助 CSS 预处理技术，给 CSS 定义添加浏览器前缀</h3><h3 id="u4E0D_u8981_u8FC7_u5EA6_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00"><a href="#u4E0D_u8981_u8FC7_u5EA6_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00" class="headerlink" title="不要过度添加浏览器前缀"></a>不要过度添加浏览器前缀</h3><h3 id="u6DFB_u52A0_CSS3__u6807_u51C6_u5C5E_u6027_u5B9A_u4E49"><a href="#u6DFB_u52A0_CSS3__u6807_u51C6_u5C5E_u6027_u5B9A_u4E49" class="headerlink" title="添加 CSS3 标准属性定义"></a>添加 CSS3 标准属性定义</h3><h2 id="u505A_u597D_CSS3__u4E2D_u65B0_u7279_u6027_u7684_u517C_u5BB9_u5904_u7406"><a href="#u505A_u597D_CSS3__u4E2D_u65B0_u7279_u6027_u7684_u517C_u5BB9_u5904_u7406" class="headerlink" title="做好 CSS3 中新特性的兼容处理"></a>做好 CSS3 中新特性的兼容处理</h2><p>有些新特性没有对应的降级处理样式，需要借助 JavaScript，推荐使用 Modernizr 框架，这个框架也包含了 CSS3 中新特性的兼容方案。</p>
+<p>使用 CSS3 新特性时，需要考虑的是，在页面所有使用了 CSS 新特性的元素中，哪些是需要做降级处理的，哪些可以做兼容处理。</p>
+<p>在目前 CSS3 并没有被所有主流浏览器支持的情况下，使用 CSS3 中的新特性时要在功能和性能之间做权衡。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/high-performance-css/" rel="next" title="CSS最佳实践之高性能的 CSS">
+                <i class="fa fa-chevron-left"></i> CSS最佳实践之高性能的 CSS
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/html-style-guide/" rel="prev" title="HTML编码规范（转）">
+                HTML编码规范（转） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/best-practices-css3/"
+     data-title="CSS最佳实践之CSS3 相关最佳实践"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/best-practices-css3/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/best-practices-css3/"
+           data-title="CSS最佳实践之CSS3 相关最佳实践" data-url="http://MertensMing.github.io/post/best-practices-css3/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6D4F_u89C8_u5668_u652F_u6301_u60C5_u51B5"><span class="nav-number">1.</span> <span class="nav-text">浏览器支持情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6DFB_u52A0_u5FC5_u8981_u7684_u6D4F_u89C8_u5668_u524D_u7F00"><span class="nav-number">2.</span> <span class="nav-text">添加必要的浏览器前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u8DF5_u65B9_u6848"><span class="nav-number">3.</span> <span class="nav-text">实践方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528_u5DE5_u5177_u6765_u6DFB_u52A0_CSS__u5C5E_u6027_u5B9A_u4E49_u7684_u6D4F_u89C8_u5668_u524D_u7F00"><span class="nav-number">3.1.</span> <span class="nav-text">使用工具来添加 CSS 属性定义的浏览器前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u501F_u52A9_CSS__u9884_u5904_u7406_u6280_u672F_uFF0C_u7ED9_CSS__u5B9A_u4E49_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00"><span class="nav-number">3.2.</span> <span class="nav-text">借助 CSS 预处理技术，给 CSS 定义添加浏览器前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0D_u8981_u8FC7_u5EA6_u6DFB_u52A0_u6D4F_u89C8_u5668_u524D_u7F00"><span class="nav-number">3.3.</span> <span class="nav-text">不要过度添加浏览器前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6DFB_u52A0_CSS3__u6807_u51C6_u5C5E_u6027_u5B9A_u4E49"><span class="nav-number">3.4.</span> <span class="nav-text">添加 CSS3 标准属性定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u505A_u597D_CSS3__u4E2D_u65B0_u7279_u6027_u7684_u517C_u5BB9_u5904_u7406"><span class="nav-number">4.</span> <span class="nav-text">做好 CSS3 中新特性的兼容处理</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

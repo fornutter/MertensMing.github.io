@@ -1,0 +1,145 @@
+/*
+* @Author: Administrator
+* @Date:   2016-03-10 11:23:01
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-03-10 12:08:27
+*/
+/*轮播图*/
+.m-slide
+{
+    position: relative;
+}
+.m-slide img
+{
+    width: 100%; /*轮播图自适应屏幕宽度*/
+    display: block; /*消除img元素底下的空隙*/
+}
+
+
+/* 指示控制器 */
+.u-pointer
+{
+    line-height: 0;
+
+    position: absolute;
+    z-index: 50;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+
+    text-align: center;
+}
+
+.u-pointer i
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin: 0 0 0 10px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    background: #fff;
+}
+
+.u-pointer i:first-child
+{
+    margin-left: 0;
+}
+
+.u-pointer i:hover
+{
+    background: #ccc;
+}
+
+.u-pointer i.z-crt
+{
+    background: #000;
+}
+
+/*友情链接介绍*/
+.m-friend-links .item
+{
+    font-size: 14px;
+    line-height: 1.7142857142857;
+
+    position: relative;
+
+    box-sizing: border-box;
+    width: 33.3333333%; /* 宽度自适应 */
+    margin: 55px 0;
+    padding-left: 100px;
+
+    color: #666;
+}
+
+.m-friend-links .u-tt
+{
+    font-size: 22px;
+
+    color: #333;
+}
+
+.m-friend-links .u-text
+{
+    width: 242px;
+    margin: 7px 0 25px;
+}
+
+.m-friend-links .u-logo
+{
+    position: absolute;
+    top: 6px;
+    left: 0;
+
+    width: 80px;
+    height: 80px;
+}
+
+.m-friend-links a:hover
+{
+    text-decoration: underline;
+}
+
+.m-friend-links .logo1
+{
+    background-image: url(temp/friend-links.png);
+}
+
+.m-friend-links .logo2
+{
+    background: url(temp/friend-links.png) 0 -80px;
+}
+
+.m-friend-links .logo3
+{
+    background: url(temp/friend-links.png) 0 -160px;
+}
+
+/*给办公区域、选项卡、侧栏添加背景色*/
+.bg-color
+{
+    background-color: #f8f8f8;
+}
+
+/*办公区域水平滚动*/
+.slider-carousel
+{
+    line-height: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 220px;
+    margin-bottom: 80px;
+    padding-top: 1px;
+}
+
+.slide-box-wrap
+{
+    width: 99999px;
+}

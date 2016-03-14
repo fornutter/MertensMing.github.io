@@ -1,0 +1,873 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Layout," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="布局 - 元素的摆放模式
+display设置元素的显示方式
+dispaly: block | inline | inline-block | none
+dispaly: block;
+默认宽度为父元素宽度
+可设置宽高（1、2影响元素的大小）
+换行显示（影响元素的位置）
+默认为block的元素：&amp;lt;div&amp;gt;, &amp;lt;p&amp;gt;, &amp;lt;h1&amp;gt; ~ &amp;lt;h6&amp;gt;, &amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 布局">
+<meta property="og:url" content="http://MertensMing.github.io/post/css-layout/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="布局 - 元素的摆放模式
+display设置元素的显示方式
+dispaly: block | inline | inline-block | none
+dispaly: block;
+默认宽度为父元素宽度
+可设置宽高（1、2影响元素的大小）
+换行显示（影响元素的位置）
+默认为block的元素：&amp;lt;div&amp;gt;, &amp;lt;p&amp;gt;, &amp;lt;h1&amp;gt; ~ &amp;lt;h6&amp;gt;, &amp;lt;">
+<meta property="og:updated_time" content="2016-03-03T02:44:24.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 布局">
+<meta name="twitter:description" content="布局 - 元素的摆放模式
+display设置元素的显示方式
+dispaly: block | inline | inline-block | none
+dispaly: block;
+默认宽度为父元素宽度
+可设置宽高（1、2影响元素的大小）
+换行显示（影响元素的位置）
+默认为block的元素：&amp;lt;div&amp;gt;, &amp;lt;p&amp;gt;, &amp;lt;h1&amp;gt; ~ &amp;lt;h6&amp;gt;, &amp;lt;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS 布局 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS 布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-02T23:01:54+08:00" content="2016-03-02">
+              2016-03-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/css-layout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/css-layout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>布局 - 元素的摆放模式</p>
+<h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p>设置元素的显示方式</p>
+<p><code>dispaly: block | inline | inline-block | none</code></p>
+<h3 id="dispaly_3A_block_3B"><a href="#dispaly_3A_block_3B" class="headerlink" title="dispaly: block;"></a>dispaly: block;</h3><ol>
+<li>默认宽度为父元素宽度</li>
+<li>可设置宽高（1、2影响元素的大小）</li>
+<li>换行显示（影响元素的位置）</li>
+<li>默认为block的元素：<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;form&gt;</code></li>
+</ol>
+<a id="more"></a>
+<h3 id="display_3Ainline"><a href="#display_3Ainline" class="headerlink" title="display:inline"></a>display:inline</h3><ol>
+<li>默认宽度为内容宽度</li>
+<li>不可设置宽高</li>
+<li>同行显示（元素内部可换行）</li>
+<li>默认为inline的元素：<code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;em&gt;</code></li>
+</ol>
+<h3 id="display_3Ainline-block"><a href="#display_3Ainline-block" class="headerlink" title="display:inline-block"></a>display:inline-block</h3><ol>
+<li>默认宽度为内容宽度</li>
+<li>可设置宽高</li>
+<li>同行显示</li>
+<li>整块换行</li>
+<li>默认为inline-block的元素：<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code></li>
+</ol>
+<h3 id="display_3Anone"><a href="#display_3Anone" class="headerlink" title="display:none"></a>display:none</h3><ol>
+<li>设置元素不显示</li>
+<li><code>display:none</code> 与 <code>visibility:hidden</code> 的区别为 <code>display:none</code> 不显示且不占位，但 <code>visibility:hidden</code> 不显示但占位。</li>
+</ol>
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><p><code>position</code> 用于设置定位的方式与<code>top right bottom left z-index</code> 则用于设置参照物位置（必须配合定位一同使用）。</p>
+<h3 id="u4E09_u79CD_u5B9A_u4F4D_u5F62_u5F0F"><a href="#u4E09_u79CD_u5B9A_u4F4D_u5F62_u5F0F" class="headerlink" title="三种定位形式"></a>三种定位形式</h3><ol>
+<li>静态定位（<code>static</code>）</li>
+<li>相对定位（<code>relative</code>）</li>
+<li>绝对定位（<code>absolute</code>、<code>fixed</code>）</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">position: <span class="keyword">static</span> | relative | absolute | <span class="keyword">fixed</span></span><br><span class="line"><span class="comment">/* 默认值为 static */</span></span><br></pre></td></tr></table></figure>
+<h3 id="position_3Arelative"><a href="#position_3Arelative" class="headerlink" title="position:relative"></a>position:relative</h3><ol>
+<li>相对定位的元素仍在文档流之中，并按照文档流中的顺序进行排列。</li>
+<li>参照物为元素本身的位置。</li>
+</ol>
+<p><strong>NOTE：</strong>最常用的目的为改变元素层级和设置为绝对定位的参照物。</p>
+<h3 id="position_3Aabsolute"><a href="#position_3Aabsolute" class="headerlink" title="position:absolute"></a>position:absolute</h3><p>建立以包含块为基准的定位，其随即拥有偏移属性和 <code>z-index</code> 属性。</p>
+<ol>
+<li>默认宽度为内容宽度</li>
+<li>脱离文档流</li>
+<li>参照物为第一个定位祖先或根元素（<html> 元素）</html></li>
+</ol>
+<h3 id="position_3Afixed"><a href="#position_3Afixed" class="headerlink" title="position:fixed"></a>position:fixed</h3><ol>
+<li>默认宽度为内容宽度</li>
+<li>脱离文档流</li>
+<li>参照物为视窗</li>
+</ol>
+<p><strong>NOTE：</strong>宽高的100%的参照依然为视窗（例：网页遮罩效果）</p>
+<h3 id="top/right/bottom/left"><a href="#top/right/bottom/left" class="headerlink" title="top/right/bottom/left"></a>top/right/bottom/left</h3><p>其用于设置元素边缘与参照物边缘的距离，且设置的值可为负值。在同时设置相对方向时，元素将被拉伸。</p>
+<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><p>其用于设置 <code>Z</code> 轴上得排序，默认值为 <code>0</code> 但可设置为负值。（如不做设置，则按照文档流的顺序排列。后面的元素将置于前面的元素之上）</p>
+<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><p><code>CSS</code> 中规定的定位机制，其可实现块级元素同行显示并存在于文档流之中。浮动仅仅影响文档流中下一个紧邻的元素。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span>: left | right | none | inherit</span><br></pre></td></tr></table></figure>
+<ol>
+<li>默认宽度为内容宽度</li>
+<li>脱离文档流（会被父元素边界阻挡与<code>position</code>脱离文档流的方式不同）</li>
+<li>指的方向一直移动</li>
+</ol>
+<p><code>float</code> 元素在同一文档流中，当同时进行 <code>float</code> 时它们会按照文档流中的顺序排列。(当所有父元素中的所有元素脱离文档流之后，父元素将失去原有默认的内容高度)</p>
+<p>注意：<code>float</code> 元素是半脱离文档流的，对元素是脱离文档流，但对于内容则是在文档流之中的（既元素重叠但内容不重叠）。</p>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear: both | left | right | none | inherit</span><br></pre></td></tr></table></figure>
+<ol>
+<li>应用于后续元素</li>
+<li>应用于块级元素（block）</li>
+</ol>
+<p>使用方法：</p>
+<ol>
+<li><code>clearfix</code> 于父元素</li>
+<li>浮动后续空白元素 <code>.emptyDiv {clear: both}</code></li>
+<li>为受到影响的元素设置 <code>width: 100%</code> <code>overflow: hidden</code> 也可</li>
+<li>块级元素可以使用 <code>&lt;br&gt;</code> 不建议使用，影响 <code>HTML</code> 结构</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* clearfix */</span></span><br><span class="line"><span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">&#123;</span><br><span class="line">   <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"."</span></span></span>; <span class="comment">/* Older browser do not support empty content */</span></span><br><span class="line">   <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">   <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">   <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">   <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.clearfix</span> <span class="rules">&#123;<span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>;&#125;</span> <span class="comment">/* 针对 IE 不支持 :after */</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Layout/" rel="tag">#Layout</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/deep-understanding-css-float/" rel="next" title="CSS深入理解之 float浮动（转）">
+                <i class="fa fa-chevron-left"></i> CSS深入理解之 float浮动（转）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/css-transform/" rel="prev" title="CSS 变形 - transform">
+                CSS 变形 - transform <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/css-layout/"
+     data-title="CSS 布局"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/css-layout/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/css-layout/"
+           data-title="CSS 布局" data-url="http://MertensMing.github.io/post/css-layout/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#display"><span class="nav-number">1.</span> <span class="nav-text">display</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dispaly_3A_block_3B"><span class="nav-number">1.1.</span> <span class="nav-text">dispaly: block;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display_3Ainline"><span class="nav-number">1.2.</span> <span class="nav-text">display:inline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display_3Ainline-block"><span class="nav-number">1.3.</span> <span class="nav-text">display:inline-block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display_3Anone"><span class="nav-number">1.4.</span> <span class="nav-text">display:none</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position"><span class="nav-number">2.</span> <span class="nav-text">position</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E09_u79CD_u5B9A_u4F4D_u5F62_u5F0F"><span class="nav-number">2.1.</span> <span class="nav-text">三种定位形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position_3Arelative"><span class="nav-number">2.2.</span> <span class="nav-text">position:relative</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position_3Aabsolute"><span class="nav-number">2.3.</span> <span class="nav-text">position:absolute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position_3Afixed"><span class="nav-number">2.4.</span> <span class="nav-text">position:fixed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#top/right/bottom/left"><span class="nav-number">2.5.</span> <span class="nav-text">top/right/bottom/left</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-index"><span class="nav-number">2.6.</span> <span class="nav-text">z-index</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float"><span class="nav-number">3.</span> <span class="nav-text">float</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#clear"><span class="nav-number">3.1.</span> <span class="nav-text">clear</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

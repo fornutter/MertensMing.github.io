@@ -1,0 +1,830 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="HTML5 新特性的使用简化的定义方式
+定义文档类型声明 &amp;lt;!DOCTYPE html&amp;gt;
+定义页面编码 &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+样式和脚本文件的引用，可简化
+
+12&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/lib/base.css&quot;/&amp;gt;&amp;lt;script src=&quot;jquery.min.js&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 最佳实践之积极拥抱 HTML5">
+<meta property="og:url" content="http://MertensMing.github.io/post/useHTML5/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="HTML5 新特性的使用简化的定义方式
+定义文档类型声明 &amp;lt;!DOCTYPE html&amp;gt;
+定义页面编码 &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+样式和脚本文件的引用，可简化
+
+12&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/lib/base.css&quot;/&amp;gt;&amp;lt;script src=&quot;jquery.min.js&quot;">
+<meta property="og:updated_time" content="2016-02-26T05:44:21.648Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML 最佳实践之积极拥抱 HTML5">
+<meta name="twitter:description" content="HTML5 新特性的使用简化的定义方式
+定义文档类型声明 &amp;lt;!DOCTYPE html&amp;gt;
+定义页面编码 &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+样式和脚本文件的引用，可简化
+
+12&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/css/lib/base.css&quot;/&amp;gt;&amp;lt;script src=&quot;jquery.min.js&quot;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> HTML 最佳实践之积极拥抱 HTML5 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML 最佳实践之积极拥抱 HTML5
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-25T21:13:23+08:00" content="2016-02-25">
+              2016-02-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端规范/" itemprop="url" rel="index">
+                    <span itemprop="name">前端规范</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/useHTML5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/useHTML5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="HTML5__u65B0_u7279_u6027_u7684_u4F7F_u7528"><a href="#HTML5__u65B0_u7279_u6027_u7684_u4F7F_u7528" class="headerlink" title="HTML5 新特性的使用"></a>HTML5 新特性的使用</h2><h3 id="u7B80_u5316_u7684_u5B9A_u4E49_u65B9_u5F0F"><a href="#u7B80_u5316_u7684_u5B9A_u4E49_u65B9_u5F0F" class="headerlink" title="简化的定义方式"></a>简化的定义方式</h3><ol>
+<li>定义文档类型声明 <code>&lt;!DOCTYPE html&gt;</code></li>
+<li>定义页面编码 <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></li>
+<li>样式和脚本文件的引用，可简化</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"/css/lib/base.css"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u65B0_u6807_u7B7E_u548C_u65B0_u5C5E_u6027"><a href="#u65B0_u6807_u7B7E_u548C_u65B0_u5C5E_u6027" class="headerlink" title="新标签和新属性"></a>新标签和新属性</h3><h4 id="u65B0_u6807_u7B7E"><a href="#u65B0_u6807_u7B7E" class="headerlink" title="新标签"></a>新标签</h4><p>新标签分为三部分：语义化标签、功能性标签、新的输入控件类型</p>
+<p>如下是一个符合 HTML5 规范的页面结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">header</span> <span class="attribute">id</span>=<span class="value">"header"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">nav</span> <span class="attribute">id</span>=<span class="value">"navigation"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"main"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">aside</span> <span class="attribute">id</span>=<span class="value">"sidebar"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">footer</span> <span class="attribute">id</span>=<span class="value">"footer"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h5 id="u8BED_u4E49_u5316_u6807_u7B7E_uFF1A"><a href="#u8BED_u4E49_u5316_u6807_u7B7E_uFF1A" class="headerlink" title="语义化标签："></a>语义化标签：</h5><p><code>section</code> <code>article</code> <code>aside</code> <code>hgroup</code> <code>header</code> <code>footer</code> <code>nav</code> <code>figure</code> <code>figcaption</code></p>
+<h5 id="u529F_u80FD_u6027_u6807_u7B7E_uFF1A"><a href="#u529F_u80FD_u6027_u6807_u7B7E_uFF1A" class="headerlink" title="功能性标签："></a>功能性标签：</h5><p>这些标签的使用代替了原来需要使用第三方插件才能实现的效果。</p>
+<p><code>svg</code> <code>canvas</code> <code>audio</code> <code>video</code></p>
+<h5 id="u65B0_u7684_u63A7_u4EF6_u7C7B_u578B"><a href="#u65B0_u7684_u63A7_u4EF6_u7C7B_u578B" class="headerlink" title="新的控件类型"></a>新的控件类型</h5><p><code>tel</code> <code>search</code> <code>url</code> <code>date</code> <code>email</code> <code>number</code> <code>range</code> <code>color</code></p>
+<p>在不支持的浏览器中，会平稳降级为普通的 text 类型输入控件</p>
+<h4 id="u65B0_u589E_u7684_u6807_u7B7E_u5C5E_u6027"><a href="#u65B0_u589E_u7684_u6807_u7B7E_u5C5E_u6027" class="headerlink" title="新增的标签属性"></a>新增的标签属性</h4><ol>
+<li><code>&lt;script&gt;</code> 标签的 async 属性</li>
+<li><code>&lt;base&gt;</code> 标签的 target 属性</li>
+<li><code>&lt;input&gt;</code> 和 <code>&lt;textarea&gt;</code> 中的 <code>placeholder</code>、<code>required</code>、<code>autofocus</code> 属性</li>
+<li>标签上自定义属性 <code>data-*</code>， IE7 及以下不支持</li>
+</ol>
+<p>部分标签和属性已经变更：</p>
+<p><code>&lt;i&gt;</code> <code>&lt;b&gt;</code> <code>&lt;u&gt;</code> <code>&lt;small&gt;</code> 改变了原来的语义</p>
+<p><code>&lt;script&gt;</code> 标签除了可以包含脚本代码之外，还可以包含用户自定义的数据块</p>
+<h2 id="u4E0D_u8981_u4F7F_u7528_HTML5__u4E2D_u5DF2_u7ECF_u5E9F_u5F03_u7684_u6807_u7B7E_u548C_u5C5E_u6027"><a href="#u4E0D_u8981_u4F7F_u7528_HTML5__u4E2D_u5DF2_u7ECF_u5E9F_u5F03_u7684_u6807_u7B7E_u548C_u5C5E_u6027" class="headerlink" title="不要使用 HTML5 中已经废弃的标签和属性"></a>不要使用 HTML5 中已经废弃的标签和属性</h2><ol>
+<li>标签仅仅用于设置外观，没有任何语义，而且这类标签可以用 CSS 来代替，<code>&lt;big&gt;</code> <code>&lt;basefont&gt;</code> <code>&lt;center&gt;</code> <code>&lt;font&gt;</code> <code>&lt;strike&gt;</code> <code>&lt;tr&gt;</code></li>
+<li>标签破坏了可用性 <code>&lt;frame&gt;</code> <code>&lt;frameset&gt;</code> <code>&lt;noframes&gt;</code></li>
+<li>标签很少被使用或者有更好的替代标签，标签 <code>&lt;acronym&gt;</code> <code>&lt;applet&gt;</code> <code>&lt;dir&gt;</code> 对应的代替标签是 <code>&lt;abbr&gt;</code> <code>&lt;object&gt;</code> <code>&lt;ul&gt;</code></li>
+</ol>
+<h2 id="u5904_u7406_u6D4F_u89C8_u5668_u7684_u517C_u5BB9_u95EE_u9898"><a href="#u5904_u7406_u6D4F_u89C8_u5668_u7684_u517C_u5BB9_u95EE_u9898" class="headerlink" title="处理浏览器的兼容问题"></a>处理浏览器的兼容问题</h2><h3 id="u8BA9_u6D4F_u89C8_u5668_u8BC6_u522B_HTML5__u4E2D_u7684_u65B0_u6807_u7B7E"><a href="#u8BA9_u6D4F_u89C8_u5668_u8BC6_u522B_HTML5__u4E2D_u7684_u65B0_u6807_u7B7E" class="headerlink" title="让浏览器识别 HTML5 中的新标签"></a>让浏览器识别 HTML5 中的新标签</h3><p><strong>方式一：Coding JavaScript</strong></p>
+<p>如果是 IE9 以下的 IE 浏览器将创建 HTML5 标签， 这样 非IE 浏览器就会忽视这段代码，也就不会有无谓的 http 请求了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt; </span><br><span class="line">&lt;script&gt; </span><br><span class="line">   (function() &#123;</span><br><span class="line">     if (! </span><br><span class="line">     /*@cc_on!@*/</span><br><span class="line">     0) return;</span><br><span class="line">     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');</span><br><span class="line">     var i= e.length;</span><br><span class="line">     while (i--)&#123;</span><br><span class="line">         document.createElement(e[i])</span><br><span class="line">     &#125; </span><br><span class="line">&#125;)() </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>第二种方法：使用Google的html5shiv包（推荐）</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt; </span><br><span class="line">&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>管使用以上哪种方法,都要初始化新标签的CSS.<br>因为 HTML5 在默认情况下表现为内联元素，对这些元素进行布局我们需要利用CSS手工把它们转为块状元素方便布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*html5*/</span></span><br><span class="line"><span class="tag">article</span>,<span class="tag">aside</span>,<span class="tag">dialog</span>,<span class="tag">footer</span>,<span class="tag">header</span>,<span class="tag">section</span>,<span class="tag">footer</span>,<span class="tag">nav</span>,<span class="tag">figure</span>,<span class="tag">menu</span><span class="rules">&#123;<span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span></span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTML5__u4E2D_u65B0_u7279_u6027_u7684_u5411_u540E_u517C_u5BB9"><a href="#HTML5__u4E2D_u65B0_u7279_u6027_u7684_u5411_u540E_u517C_u5BB9" class="headerlink" title="HTML5 中新特性的向后兼容"></a>HTML5 中新特性的向后兼容</h3><p><code>Modernizr</code> 框架</p>
+<h3 id="u97F3_u9891_u548C_u89C6_u9891_u7684_u517C_u5BB9"><a href="#u97F3_u9891_u548C_u89C6_u9891_u7684_u517C_u5BB9" class="headerlink" title="音频和视频的兼容"></a>音频和视频的兼容</h3><p>兼容代码可以是提示信息，也可以是第三方 Flash 播放器，或者直接提供一个下载链接</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">audio</span> <span class="attribute">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"elvis.mp3"</span> <span class="attribute">type</span>=<span class="value">"audio/mpeg; codecs='mp3'"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"elvis.oga"</span> <span class="attribute">type</span>=<span class="value">"audio/ogg; codecs='vorbis'"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 向后兼容代码 --&gt;</span></span><br><span class="line">    浏览器不支持 <span class="tag">&lt;<span class="title">code</span>&gt;</span>audio<span class="tag">&lt;/<span class="title">code</span>&gt;</span> 标签</span><br><span class="line"><span class="tag">&lt;/<span class="title">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag">#HTML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/semanticHTML/" rel="next" title="HTML 最佳实践之高可读性的 HTML">
+                <i class="fa fa-chevron-left"></i> HTML 最佳实践之高可读性的 HTML
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/maintainableCss/" rel="prev" title="CSS 最佳实践之高维护性的 CSS">
+                CSS 最佳实践之高维护性的 CSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/useHTML5/"
+     data-title="HTML 最佳实践之积极拥抱 HTML5"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/useHTML5/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/useHTML5/"
+           data-title="HTML 最佳实践之积极拥抱 HTML5" data-url="http://MertensMing.github.io/post/useHTML5/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5__u65B0_u7279_u6027_u7684_u4F7F_u7528"><span class="nav-number">1.</span> <span class="nav-text">HTML5 新特性的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u7B80_u5316_u7684_u5B9A_u4E49_u65B9_u5F0F"><span class="nav-number">1.1.</span> <span class="nav-text">简化的定义方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65B0_u6807_u7B7E_u548C_u65B0_u5C5E_u6027"><span class="nav-number">1.2.</span> <span class="nav-text">新标签和新属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u65B0_u6807_u7B7E"><span class="nav-number">1.2.1.</span> <span class="nav-text">新标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u8BED_u4E49_u5316_u6807_u7B7E_uFF1A"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">语义化标签：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u529F_u80FD_u6027_u6807_u7B7E_uFF1A"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">功能性标签：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u65B0_u7684_u63A7_u4EF6_u7C7B_u578B"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">新的控件类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u65B0_u589E_u7684_u6807_u7B7E_u5C5E_u6027"><span class="nav-number">1.2.2.</span> <span class="nav-text">新增的标签属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E0D_u8981_u4F7F_u7528_HTML5__u4E2D_u5DF2_u7ECF_u5E9F_u5F03_u7684_u6807_u7B7E_u548C_u5C5E_u6027"><span class="nav-number">2.</span> <span class="nav-text">不要使用 HTML5 中已经废弃的标签和属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5904_u7406_u6D4F_u89C8_u5668_u7684_u517C_u5BB9_u95EE_u9898"><span class="nav-number">3.</span> <span class="nav-text">处理浏览器的兼容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BA9_u6D4F_u89C8_u5668_u8BC6_u522B_HTML5__u4E2D_u7684_u65B0_u6807_u7B7E"><span class="nav-number">3.1.</span> <span class="nav-text">让浏览器识别 HTML5 中的新标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5__u4E2D_u65B0_u7279_u6027_u7684_u5411_u540E_u517C_u5BB9"><span class="nav-number">3.2.</span> <span class="nav-text">HTML5 中新特性的向后兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u97F3_u9891_u548C_u89C6_u9891_u7684_u517C_u5BB9"><span class="nav-number">3.3.</span> <span class="nav-text">音频和视频的兼容</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

@@ -1,0 +1,897 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Events," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="节点操作1.1 获取节点1.1.1 父子关系parentNode
+parentNode 属性以 Node 对象的形式返回指定节点的父节点。 
+如果指定节点没有父节点，则返回 null。
+
+firstChild
+返回当前节点在DOM树中的第一个子节点, 如果没有子节点,则返回 null.
+IE9 及以上可以识别文本节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM 的节点操作">
+<meta property="og:url" content="http://MertensMing.github.io/post/js-domNodeOperation/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="节点操作1.1 获取节点1.1.1 父子关系parentNode
+parentNode 属性以 Node 对象的形式返回指定节点的父节点。 
+如果指定节点没有父节点，则返回 null。
+
+firstChild
+返回当前节点在DOM树中的第一个子节点, 如果没有子节点,则返回 null.
+IE9 及以上可以识别文本节点">
+<meta property="og:updated_time" content="2016-03-06T14:32:05.168Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM 的节点操作">
+<meta name="twitter:description" content="节点操作1.1 获取节点1.1.1 父子关系parentNode
+parentNode 属性以 Node 对象的形式返回指定节点的父节点。 
+如果指定节点没有父节点，则返回 null。
+
+firstChild
+返回当前节点在DOM树中的第一个子节点, 如果没有子节点,则返回 null.
+IE9 及以上可以识别文本节点">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> DOM 的节点操作 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DOM 的节点操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-06T22:31:18+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/DOM/" itemprop="url" rel="index">
+                    <span itemprop="name">DOM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/js-domNodeOperation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/js-domNodeOperation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u8282_u70B9_u64CD_u4F5C"><a href="#u8282_u70B9_u64CD_u4F5C" class="headerlink" title="节点操作"></a>节点操作</h2><h3 id="1-1__u83B7_u53D6_u8282_u70B9"><a href="#1-1__u83B7_u53D6_u8282_u70B9" class="headerlink" title="1.1 获取节点"></a>1.1 获取节点</h3><h4 id="1-1-1__u7236_u5B50_u5173_u7CFB"><a href="#1-1-1__u7236_u5B50_u5173_u7CFB" class="headerlink" title="1.1.1 父子关系"></a>1.1.1 父子关系</h4><h5 id="parentNode"><a href="#parentNode" class="headerlink" title="parentNode"></a><code>parentNode</code></h5><ul>
+<li>parentNode 属性以 Node 对象的形式返回指定节点的父节点。 </li>
+<li>如果指定节点没有父节点，则返回 null。</li>
+</ul>
+<h5 id="firstChild"><a href="#firstChild" class="headerlink" title="firstChild"></a><code>firstChild</code></h5><ul>
+<li>返回当前节点在DOM树中的第一个子节点, 如果没有子节点,则返回 null.</li>
+<li><code>IE9</code> 及以上可以识别文本节点</li>
+</ul>
+<a id="more"></a>
+<h5 id="lastChild"><a href="#lastChild" class="headerlink" title="lastChild"></a><code>lastChild</code></h5><ul>
+<li>lastChild 属性返回指定节点的最后一个子节点，以 Node 对象</li>
+</ul>
+<h5 id="childNodes"><a href="#childNodes" class="headerlink" title="childNodes"></a><code>childNodes</code></h5><ul>
+<li>Node.childNodes 返回包含指定节点的子节点的集合，该集合为<strong>即时更新</strong>的集合 （live collection）</li>
+</ul>
+<h5 id="children"><a href="#children" class="headerlink" title="children"></a><code>children</code></h5><ul>
+<li><code>ParentNode.children</code>  是一个只读属性，返回一个包含当前元素的子元素的集合，该集合为一个<strong>即时更新</strong>的（live）HTMLCollection。</li>
+<li><code>IE9</code>以上支持</li>
+</ul>
+<!--more-->
+<h4 id="1-1-2__u5144_u5F1F_u5173_u7CFB"><a href="#1-1-2__u5144_u5F1F_u5173_u7CFB" class="headerlink" title="1.1.2 兄弟关系"></a>1.1.2 兄弟关系</h4><hr>
+<h5 id="Node-previousSibling"><a href="#Node-previousSibling" class="headerlink" title="Node.previousSibling"></a><code>Node.previousSibling</code></h5><ul>
+<li>返回当前节点在其父节点的 childNodes 列表中的前一个节点,<strong>如果当前节点就是其父节点的第一个子节点 , 则返回 null</strong>.</li>
+</ul>
+<h5 id="Node-nextSibling"><a href="#Node-nextSibling" class="headerlink" title="Node.nextSibling"></a><code>Node.nextSibling</code></h5><ul>
+<li>Node.nextSibling 是一个只读属性，返回其父节点的 childNodes 列表中紧跟在其后面的节点，<strong>如果指定的节点为最后一个节点，则返回 null</strong></li>
+</ul>
+<h5 id="previousElementSibling_/_nextElementSibling"><a href="#previousElementSibling_/_nextElementSibling" class="headerlink" title="previousElementSibling / nextElementSibling"></a><code>previousElementSibling</code> / <code>nextElementSibling</code></h5><ul>
+<li><code>IE9</code> 以上支持</li>
+</ul>
+<hr>
+<h4 id="1-1-3__u63A5_u53E3_u83B7_u53D6_u5143_u7D20_u8282_u70B9"><a href="#1-1-3__u63A5_u53E3_u83B7_u53D6_u5143_u7D20_u8282_u70B9" class="headerlink" title="1.1.3 接口获取元素节点"></a>1.1.3 接口获取元素节点</h4><hr>
+<h5 id="document-getElementById_28_26_2339_3Bid_26_2339_3B_29"><a href="#document-getElementById_28_26_2339_3Bid_26_2339_3B_29" class="headerlink" title="document.getElementById(&#39;id&#39;)"></a><code>document.getElementById(&#39;id&#39;)</code></h5><ul>
+<li>element是一个 Element 对象。</li>
+<li>如果当前文档中拥有特定ID的元素不存在则返回null.<br>id是大小写敏感的字符串，代表了所要查找的元素的唯一ID.</li>
+</ul>
+<h5 id="element-getElementsByTagName_28_26_2339_3BTagName_26_2339_3B_29"><a href="#element-getElementsByTagName_28_26_2339_3BTagName_26_2339_3B_29" class="headerlink" title="element.getElementsByTagName(&#39;TagName&#39;)"></a><code>element.getElementsByTagName(&#39;TagName&#39;)</code></h5><ul>
+<li>返回一个实时的包含具有给出标签名的元素们的HTMLCollection</li>
+<li>返回的 list 是实时的，意味着它会随着DOM树的变化自动更新</li>
+</ul>
+<h5 id="element-getElementsByClassName_28_29"><a href="#element-getElementsByClassName_28_29" class="headerlink" title="element.getElementsByClassName()"></a><code>element.getElementsByClassName()</code></h5><ul>
+<li>返回一个类似数组的对象，包含了所有指定 class 名称的子元素</li>
+<li><code>IE9</code> 以上支持</li>
+</ul>
+<h5 id="element-querySelector_28_29"><a href="#element-querySelector_28_29" class="headerlink" title="element.querySelector()"></a><code>element.querySelector()</code></h5><ul>
+<li>返回该元素后代元素中，第一个匹配选择器参数的后代元素</li>
+<li><code>IE8</code> 以上支持</li>
+</ul>
+<h5 id="element-querySelectorAll_28_29"><a href="#element-querySelectorAll_28_29" class="headerlink" title="element.querySelectorAll()"></a><code>element.querySelectorAll()</code></h5><ul>
+<li>返回一个<strong>non-live</strong>的NodeList对象,这个对象将会包含调用querySelectorAll()方法的那个DOM对象的所有后代元素中匹配指定css选择器的元素们.</li>
+</ul>
+<hr>
+<h3 id="1-2__u521B_u5EFA_u8282_u70B9"><a href="#1-2__u521B_u5EFA_u8282_u70B9" class="headerlink" title="1.2 创建节点"></a>1.2 创建节点</h3><hr>
+<h4 id="document-createElement_28_29"><a href="#document-createElement_28_29" class="headerlink" title="document.createElement()"></a><code>document.createElement()</code></h4><ul>
+<li>在一个HTML文档中, document.createElement()方法用于创建指定的HTML元素，或者， 当指定未定义的元素时， 创建一个HTMLUnknownElement。</li>
+</ul>
+<h4 id="document-createTextNode_28_29"><a href="#document-createTextNode_28_29" class="headerlink" title="document.createTextNode()"></a><code>document.createTextNode()</code></h4><ul>
+<li>创建一个新的文本节点</li>
+<li><code>var text = document.createTextNode(data);</code></li>
+<li>text 是一个文本节点</li>
+<li>data 是一个字符串,包含了放在文本节点中的内容</li>
+</ul>
+<hr>
+<h3 id="1-3__u4FEE_u6539_u8282_u70B9"><a href="#1-3__u4FEE_u6539_u8282_u70B9" class="headerlink" title="1.3 修改节点"></a>1.3 修改节点</h3><hr>
+<h4 id="Node-textContent"><a href="#Node-textContent" class="headerlink" title="Node.textContent"></a><code>Node.textContent</code></h4><ul>
+<li>Node.textContent 属性可以表示一个节点及其后代节点的文本内容</li>
+<li>对于其他节点类型，textContent 将所有子节点的 textContent 合并后返回，除了注释、ProcessingInstruction节点。如果该节点没有子节点的话，返回一个空字符串</li>
+<li>在节点上设置 textContent 属性的话，会删除它的所有子节点，并替换为一个具有给定值的文本节点</li>
+<li><code>IE9</code> 以上支持</li>
+</ul>
+<h4 id="Node-innerText"><a href="#Node-innerText" class="headerlink" title="Node.innerText"></a><code>Node.innerText</code></h4><ul>
+<li>行为跟 textContent 类似</li>
+<li>有以下不同</li>
+<li>textContent 会获取所有元素的内容，包括<script> 和 <style> 元素，然而 IE 专有属性 innerText 不会。</li>
+<li>innerText 会受样式的影响，它不返回隐藏元素的文本，但 textContent 返回。</li>
+<li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li>
+</ul>
+<h3 id="1-4__u63D2_u5165_u8282_u70B9"><a href="#1-4__u63D2_u5165_u8282_u70B9" class="headerlink" title="1.4 插入节点"></a>1.4 插入节点</h3><h4 id="Node-appendChild"><a href="#Node-appendChild" class="headerlink" title="Node.appendChild"></a><code>Node.appendChild</code></h4><ul>
+<li>将一个节点插入到指定的父节点的最末尾处(也就是成为了这个父节点的最后一个子节点)</li>
+<li>如果<strong>被插入的节点已经存在于当前文档的文档树中</strong>,则那个节点会首先<strong>从原先的位置移除</strong>,然后再插入到新的位置.</li>
+<li>如果你需要保留这个子节点在原先位置的显示,则你需要先用Node.cloneNode方法复制出一个节点的副本,然后在插入到新位置.</li>
+<li>这个方法只能将某个子节点插入到同一个文档的其他位置,如果你想跨文档插入,你需要先调用document.importNode方法.</li>
+</ul>
+<h4 id="Node-insertBefore"><a href="#Node-insertBefore" class="headerlink" title="Node.insertBefore"></a><code>Node.insertBefore</code></h4><ul>
+<li>在当前节点的某个子节点之前再插入一个子节点</li>
+<li><code>var insertedElement = parentElement.insertBefore(newElement, referenceElement);</code></li>
+<li>没有 insertAfter 方法，可以使用 insertBefore 方法和 nextSibling 来模拟它</li>
+<li><code>parentDiv.insertBefore(sp1, sp2.nextSibling);</code></li>
+</ul>
+<h3 id="1-5__u66FF_u6362_u8282_u70B9"><a href="#1-5__u66FF_u6362_u8282_u70B9" class="headerlink" title="1.5 替换节点"></a>1.5 替换节点</h3><h4 id="Node-replaceChild"><a href="#Node-replaceChild" class="headerlink" title="Node.replaceChild"></a><code>Node.replaceChild</code></h4><ul>
+<li>用指定的节点替换当前节点的一个子节点，并返回被替换掉的节点</li>
+</ul>
+<h3 id="1-6__u5220_u9664_u8282_u70B9"><a href="#1-6__u5220_u9664_u8282_u70B9" class="headerlink" title="1.6 删除节点"></a>1.6 删除节点</h3><h4 id="Node-removeChild"><a href="#Node-removeChild" class="headerlink" title="Node.removeChild"></a><code>Node.removeChild</code></h4><ul>
+<li>从某个父节点中移除指定的子节点,并返回那个子节点.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (node.parentNode) &#123;</span><br><span class="line">  <span class="comment">// 从DOM树中删除node节点,除非它已经被删除了.</span></span><br><span class="line">  node.parentNode.removeChild(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-7_innerHTML"><a href="#1-7_innerHTML" class="headerlink" title="1.7 innerHTML"></a>1.7 innerHTML</h3><ul>
+<li>获取或设置指定节点之中所有的 HTML 内容。</li>
+<li>替换之前内部所有的内容并创建全新的一批节点（去除之前添加的事件和样式）。</li>
+<li>innerHTML 不检查内容，直接运行并替换原先的内容。</li>
+</ul>
+<p><strong>NOTE</strong>：只建议在创建全新的节点时使用。不可在用户可控的情况下使用。</p>
+</script></li></ul>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Events/" rel="tag">#Events</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/dom-event/" rel="next" title="DOM 事件">
+                <i class="fa fa-chevron-left"></i> DOM 事件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/dom-position/" rel="prev" title="JavaScript 获取 DOM 元素位置和大小">
+                JavaScript 获取 DOM 元素位置和大小 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/js-domNodeOperation/"
+     data-title="DOM 的节点操作"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/js-domNodeOperation/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/js-domNodeOperation/"
+           data-title="DOM 的节点操作" data-url="http://MertensMing.github.io/post/js-domNodeOperation/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u8282_u70B9_u64CD_u4F5C"><span class="nav-number">1.</span> <span class="nav-text">节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1__u83B7_u53D6_u8282_u70B9"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 获取节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1__u7236_u5B50_u5173_u7CFB"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 父子关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#parentNode"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">parentNode</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#firstChild"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">firstChild</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lastChild"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">lastChild</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#childNodes"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">childNodes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#children"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">children</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2__u5144_u5F1F_u5173_u7CFB"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 兄弟关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Node-previousSibling"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Node.previousSibling</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Node-nextSibling"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Node.nextSibling</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#previousElementSibling_/_nextElementSibling"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">previousElementSibling / nextElementSibling</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3__u63A5_u53E3_u83B7_u53D6_u5143_u7D20_u8282_u70B9"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 接口获取元素节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#document-getElementById_28_26_2339_3Bid_26_2339_3B_29"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">document.getElementById('id')</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#element-getElementsByTagName_28_26_2339_3BTagName_26_2339_3B_29"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">element.getElementsByTagName('TagName')</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#element-getElementsByClassName_28_29"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">element.getElementsByClassName()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#element-querySelector_28_29"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">element.querySelector()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#element-querySelectorAll_28_29"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">element.querySelectorAll()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2__u521B_u5EFA_u8282_u70B9"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 创建节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#document-createElement_28_29"><span class="nav-number">1.2.1.</span> <span class="nav-text">document.createElement()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#document-createTextNode_28_29"><span class="nav-number">1.2.2.</span> <span class="nav-text">document.createTextNode()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3__u4FEE_u6539_u8282_u70B9"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 修改节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-textContent"><span class="nav-number">1.3.1.</span> <span class="nav-text">Node.textContent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-innerText"><span class="nav-number">1.3.2.</span> <span class="nav-text">Node.innerText</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

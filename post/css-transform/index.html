@@ -1,0 +1,888 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="通过一些方法可以将盒子进行旋转、缩放、移动等等。
+transform语法1transform : none | &amp;#60;transform-function&amp;#62;+
+123transform: nonetransform: &amp;lt;transform-function&amp;gt;+&amp;lt;!-- 可以写一个或多个方法 --&amp;gt;
+1transform: translate(50%) rotat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 变形 - transform">
+<meta property="og:url" content="http://MertensMing.github.io/post/css-transform/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="通过一些方法可以将盒子进行旋转、缩放、移动等等。
+transform语法1transform : none | &amp;#60;transform-function&amp;#62;+
+123transform: nonetransform: &amp;lt;transform-function&amp;gt;+&amp;lt;!-- 可以写一个或多个方法 --&amp;gt;
+1transform: translate(50%) rotat">
+<meta property="og:image" content="http://MertensMing.github.io/15.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/16.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/1.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/2.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/3.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/4.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/5.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/6.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/7.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/8.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/9.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/10.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/11.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/12.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/13.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/14.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/18.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/17.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/19.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/20.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/21.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/22.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/23.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/23.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/24.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/25.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/26.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/27.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/28.jpg">
+<meta property="og:updated_time" content="2016-03-05T17:03:15.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 变形 - transform">
+<meta name="twitter:description" content="通过一些方法可以将盒子进行旋转、缩放、移动等等。
+transform语法1transform : none | &amp;#60;transform-function&amp;#62;+
+123transform: nonetransform: &amp;lt;transform-function&amp;gt;+&amp;lt;!-- 可以写一个或多个方法 --&amp;gt;
+1transform: translate(50%) rotat">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS 变形 - transform | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS 变形 - transform
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-03T14:47:52+08:00" content="2016-03-03">
+              2016-03-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/css-transform/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/css-transform/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通过一些方法可以将盒子进行旋转、缩放、移动等等。</p>
+<h2 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h2><figure class="highlight"><figcaption><span>语法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform : none | &#60;transform-function&#62;+</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform: none</span><br><span class="line">transform: <span class="tag">&lt;<span class="title">transform-function</span>&gt;</span>+</span><br><span class="line"><span class="comment">&lt;!-- 可以写一个或多个方法 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: translate(50%) rotate(45deg);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><img src="15.jpg" alt=""></p>
+<p>如果先做 rotate，再做 translate，那结果就不一样了,因为坐标的方向已经变化了，所以移动的方向也会跟着变化。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: rotate(45deg) translate(50%);</span><br></pre></td></tr></table></figure>
+<p><img src="16.jpg" alt=""></p>
+<h3 id="rotate_28_29__u65CB_u8F6C"><a href="#rotate_28_29__u65CB_u8F6C" class="headerlink" title="rotate() 旋转"></a>rotate() 旋转</h3><h4 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rotate(<span class="tag">&lt;<span class="title">angle</span>&gt;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="u4F7F_u7528_u793A_u4F8B"><a href="#u4F7F_u7528_u793A_u4F8B" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: rotate(45deg);</span><br><span class="line">/*顺时针旋转45°*/</span><br></pre></td></tr></table></figure>
+<p><img src="1.jpg" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">transform</span>: <span class="tag">rotate</span>(<span class="tag">-60deg</span>);</span><br><span class="line"><span class="comment">/*逆时针旋转-60°*/</span></span><br></pre></td></tr></table></figure>
+<p><img src="2.jpg" alt=""></p>
+<h3 id="translate_28_29__u79FB_u52A8"><a href="#translate_28_29__u79FB_u52A8" class="headerlink" title="translate() 移动"></a>translate() 移动</h3><h4 id="u8BED_u6CD5-1"><a href="#u8BED_u6CD5-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">translate(<span class="tag">&lt;<span class="title">translation-value</span>&gt;</span> [,<span class="tag">&lt;<span class="title">translation-value</span>&gt;</span>]?)</span><br><span class="line">/*两个参数分别表示向 x 和 y 轴移动*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">translateX(<span class="tag">&lt;<span class="title">translation-value</span>&gt;</span>)</span><br><span class="line">translateY(<span class="tag">&lt;<span class="title">translation-value</span>&gt;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="u4F7F_u7528_u793A_u4F8B-1"><a href="#u4F7F_u7528_u793A_u4F8B-1" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform:translate(50px);</span><br><span class="line">/*向右偏移 50 px*/</span><br></pre></td></tr></table></figure>
+<p><img src="3.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform: translate(50px,20%);</span><br><span class="line">/*向右偏移 50px*/</span><br><span class="line">/*向下偏移当前元素高度的20%*/</span><br></pre></td></tr></table></figure>
+<p><img src="4.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: translateX(-50px);</span><br><span class="line">/*向左偏移 50px*/</span><br></pre></td></tr></table></figure>
+<p><img src="5.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: translateY(20%);</span><br><span class="line">/*向下偏移自身高度的20%*/</span><br></pre></td></tr></table></figure>
+<p><img src="6.jpg" alt=""></p>
+<h3 id="scale_28_29__u7F29_u653E"><a href="#scale_28_29__u7F29_u653E" class="headerlink" title="scale() 缩放"></a>scale() 缩放</h3><h4 id="u8BED_u6CD5-2"><a href="#u8BED_u6CD5-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scale(<span class="tag">&lt;<span class="title">number</span>&gt;</span> [,<span class="tag">&lt;<span class="title">number</span>&gt;</span>]?)</span><br><span class="line"><span class="comment">&lt;!-- 如果第二个值不写，就默认等于第一个值 --&gt;</span></span><br><span class="line">scaleX(<span class="tag">&lt;<span class="title">number</span>&gt;</span>)</span><br><span class="line">scaleY(<span class="tag">&lt;<span class="title">number</span>&gt;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="u4F7F_u7528_u793A_u4F8B-2"><a href="#u4F7F_u7528_u793A_u4F8B-2" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: scale(1.2); </span><br><span class="line">/*整体变成了 1.2 倍*/</span><br></pre></td></tr></table></figure>
+<p><img src="7.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: scale(1,1.2); </span><br><span class="line">/*x轴变成1倍，y轴变成1.2倍*/</span><br></pre></td></tr></table></figure>
+<p><img src="8.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: scaleX(1.2); </span><br><span class="line">/*x轴变成1.2倍*/</span><br></pre></td></tr></table></figure>
+<p><img src="9.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform: scaleY(1.2); </span><br><span class="line">/*y轴变成1.2倍*/</span><br></pre></td></tr></table></figure>
+<p><img src="10.jpg" alt=""></p>
+<h3 id="skew_28_29__u503E_u659C"><a href="#skew_28_29__u503E_u659C" class="headerlink" title="skew() 倾斜"></a>skew() 倾斜</h3><h4 id="u8BED_u6CD5-3"><a href="#u8BED_u6CD5-3" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">skew(<span class="tag">&lt;<span class="title">angle</span>&gt;</span> [,<span class="tag">&lt;<span class="title">angle</span>&gt;</span>]?)  </span><br><span class="line"><span class="comment">&lt;!-- 第一个值：Y 轴向 X 轴方向偏移多少度--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第二个值：X 轴往 y 轴方向倾斜多少度--&gt;</span></span><br><span class="line">skewX(<span class="tag">&lt;<span class="title">angle</span>&gt;</span>)</span><br><span class="line">skewY(<span class="tag">&lt;<span class="title">angle</span>&gt;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="u4F7F_u7528_u793A_u4F8B-3"><a href="#u4F7F_u7528_u793A_u4F8B-3" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: skew(30deg);</span><br></pre></td></tr></table></figure>
+<p><img src="11.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: skew(30deg, 30deg);</span><br></pre></td></tr></table></figure>
+<p><img src="12.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: skewX(30deg);</span><br></pre></td></tr></table></figure>
+<p><img src="13.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: skewY(30deg);</span><br></pre></td></tr></table></figure>
+<p><img src="14.jpg" alt=""></p>
+<h2 id="transform-origin"><a href="#transform-origin" class="headerlink" title="transform-origin"></a>transform-origin</h2><p><img src="18.jpg" alt=""></p>
+<p>我们之前讲到的旋转，总是围绕着元素的中心点旋转，那有没有可能围绕着其他地方旋转呢？</p>
+<p>那就要用到 <code>transform-origin</code> 方法，设置坐标轴的轴心，原点的位置</p>
+<h3 id="u8BED_u6CD5-4"><a href="#u8BED_u6CD5-4" class="headerlink" title="语法"></a>语法</h3><p><img src="17.jpg" alt=""></p>
+<h4 id="u4E0A_u9762_u6709_u4E09_u6761_u8BED_u6CD5_uFF1A"><a href="#u4E0A_u9762_u6709_u4E09_u6761_u8BED_u6CD5_uFF1A" class="headerlink" title="上面有三条语法："></a>上面有三条语法：</h4><p>第一条语法： <code>写一个值</code>，可以是<code>一个关键字</code>，<code>一个百分比</code>，也可以是<code>一个长度值</code></p>
+<p>第二条语法： <code>写三个值</code>，第一个值表示 x 方向，第二个值表示 y 方向，第三个值可写可不写，表示 x 方向</p>
+<p>第三条语法：只使用<code>关键字</code> + <code>长度值</code></p>
+<h3 id="u4F7F_u7528_u793A_u4F8B-4"><a href="#u4F7F_u7528_u793A_u4F8B-4" class="headerlink" title="使用示例"></a>使用示例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform-origin: 50% 50%;</span><br><span class="line">/*默认值*/</span><br></pre></td></tr></table></figure>
+<p><img src="19.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform-origin: 0 0;</span><br><span class="line">/*最左上角*/</span><br></pre></td></tr></table></figure>
+<p><img src="20.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">transform-origin: 20%;</span><br><span class="line">/*只写第一个值，第二个值就是 50%*/</span><br><span class="line"></span><br><span class="line">transform-origin: right 50px 20px;  </span><br><span class="line"> /*移动到了x轴的最右边，沿着y轴移动50px，往z轴正方向移动20px*/</span><br><span class="line"></span><br><span class="line">transform-origin: right 50px 20px;  </span><br><span class="line">/*移动到了y轴的最顶部，沿着x轴移动到最右边，往z轴正方向移动20px*/</span><br></pre></td></tr></table></figure>
+<h2 id="perspective__u900F_u89C6_u6548_u679C"><a href="#perspective__u900F_u89C6_u6548_u679C" class="headerlink" title="perspective 透视效果"></a>perspective 透视效果</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perspective: none | <span class="tag">&lt;<span class="title">length</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.demo</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>(<span class="number">45deg</span>)</span></span>;</span><br><span class="line">    &#125;</span>    </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="21.jpg" alt=""></p>
+<p><code>2000px</code> 表示人眼到这个物体的距离，人眼离物体更近的话，透视效果就会更加明显。</p>
+<h3 id="perspective-origin__u4E0D_u540C_u7684_u900F_u89C6_u89D2_u5EA6"><a href="#perspective-origin__u4E0D_u540C_u7684_u900F_u89C6_u89D2_u5EA6" class="headerlink" title="perspective-origin 不同的透视角度"></a>perspective-origin 不同的透视角度</h3><p><img src="22.jpg" alt=""></p>
+<h4 id="u8BED_u6CD5-5"><a href="#u8BED_u6CD5-5" class="headerlink" title="语法"></a>语法</h4><ol>
+<li>可以只写一个值</li>
+<li>可以只写两个值</li>
+<li>可以写两个关键字</li>
+</ol>
+<h4 id="u4F7F_u7528_u793A_u4F8B-5"><a href="#u4F7F_u7528_u793A_u4F8B-5" class="headerlink" title="使用示例"></a>使用示例</h4><p><img src="23.jpg" alt=""></p>
+<h2 id="3d__u65B9_u6CD5"><a href="#3d__u65B9_u6CD5" class="headerlink" title="3d 方法"></a>3d 方法</h2><h3 id="translate3d_28_29_3d__u79FB_u52A8"><a href="#translate3d_28_29_3d__u79FB_u52A8" class="headerlink" title="translate3d() 3d 移动"></a>translate3d() 3d 移动</h3><h4 id="u8BED_u6CD5-6"><a href="#u8BED_u6CD5-6" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">translate3d(<span class="tag">&lt;<span class="title">translate-value</span>&gt;</span>, <span class="tag">&lt;<span class="title">translate-value</span>&gt;</span>, <span class="tag">&lt;<span class="title">length</span>&gt;</span>)</span><br><span class="line">translateX(<span class="tag">&lt;<span class="title">translate-value</span>&gt;</span>)</span><br><span class="line">translateY(<span class="tag">&lt;<span class="title">translate-value</span>&gt;</span>)</span><br><span class="line">translateZ(<span class="tag">&lt;<span class="title">length</span>&gt;</span>) 靠近观察者或者远离观察者</span><br></pre></td></tr></table></figure>
+<p><img src="23.jpg" alt=""></p>
+<p><img src="24.jpg" alt=""></p>
+<h3 id="scale3d_28_29_3d_u7F29_u653E"><a href="#scale3d_28_29_3d_u7F29_u653E" class="headerlink" title="scale3d() 3d缩放"></a>scale3d() 3d缩放</h3><p><img src="25.jpg" alt=""></p>
+<p>scaleZ() 方法只有在和其他方法连用时，才会对元素显示造成影响</p>
+<h3 id="rotate3d_28_29_3d_u65CB_u8F6C"><a href="#rotate3d_28_29_3d_u65CB_u8F6C" class="headerlink" title="rotate3d() 3d旋转"></a>rotate3d() 3d旋转</h3><p><img src="26.jpg" alt=""></p>
+<h2 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a>transform-style</h2><p><img src="27.jpg" alt=""></p>
+<h2 id="backface-visibility__u80CC_u9762_u662F_u5426_u53EF_u89C1"><a href="#backface-visibility__u80CC_u9762_u662F_u5426_u53EF_u89C1" class="headerlink" title="backface-visibility 背面是否可见"></a>backface-visibility 背面是否可见</h2><p><img src="28.jpg" alt=""></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/css-layout/" rel="next" title="CSS 布局">
+                <i class="fa fa-chevron-left"></i> CSS 布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/css-transition-animation/demo/index/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/css-transform/"
+     data-title="CSS 变形 - transform"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/css-transform/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/css-transform/"
+           data-title="CSS 变形 - transform" data-url="http://MertensMing.github.io/post/css-transform/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#transform"><span class="nav-number">1.</span> <span class="nav-text">transform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rotate_28_29__u65CB_u8F6C"><span class="nav-number">1.1.</span> <span class="nav-text">rotate() 旋转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5"><span class="nav-number">1.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translate_28_29__u79FB_u52A8"><span class="nav-number">1.2.</span> <span class="nav-text">translate() 移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scale_28_29__u7F29_u653E"><span class="nav-number">1.3.</span> <span class="nav-text">scale() 缩放</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skew_28_29__u503E_u659C"><span class="nav-number">1.4.</span> <span class="nav-text">skew() 倾斜</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transform-origin"><span class="nav-number">2.</span> <span class="nav-text">transform-origin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-4"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4E0A_u9762_u6709_u4E09_u6761_u8BED_u6CD5_uFF1A"><span class="nav-number">2.1.1.</span> <span class="nav-text">上面有三条语法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B-4"><span class="nav-number">2.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perspective__u900F_u89C6_u6548_u679C"><span class="nav-number">3.</span> <span class="nav-text">perspective 透视效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perspective-origin__u4E0D_u540C_u7684_u900F_u89C6_u89D2_u5EA6"><span class="nav-number">3.1.</span> <span class="nav-text">perspective-origin 不同的透视角度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5-5"><span class="nav-number">3.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528_u793A_u4F8B-5"><span class="nav-number">3.1.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3d__u65B9_u6CD5"><span class="nav-number">4.</span> <span class="nav-text">3d 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#translate3d_28_29_3d__u79FB_u52A8"><span class="nav-number">4.1.</span> <span class="nav-text">translate3d() 3d 移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BED_u6CD5-6"><span class="nav-number">4.1.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scale3d_28_29_3d_u7F29_u653E"><span class="nav-number">4.2.</span> <span class="nav-text">scale3d() 3d缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rotate3d_28_29_3d_u65CB_u8F6C"><span class="nav-number">4.3.</span> <span class="nav-text">rotate3d() 3d旋转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transform-style"><span class="nav-number">5.</span> <span class="nav-text">transform-style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backface-visibility__u80CC_u9762_u662F_u5426_u53EF_u89C1"><span class="nav-number">6.</span> <span class="nav-text">backface-visibility 背面是否可见</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

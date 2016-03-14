@@ -1,0 +1,873 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="标准的 HTML 代码标准的 HTML 代码指的是 HTML 代码符合 W3C 的最新标准。
+验证代码是否符合标准一个标准的页面有哪些优点：1. 标准的页面会保证浏览器正确地渲染。
+使用符合标准的 HTML 标签和 CSS 样式，能最大限度的保证页面在不同浏览器正常地进行解析，同时最大限度地保证未来的各种客户端中正常地解析。
+2. 网页能更容易被搜索引擎搜寻，提高网站的排名。
+网络“爬虫”会根据标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 最佳实践之标准的 HTML 代码">
+<meta property="og:url" content="http://MertensMing.github.io/post/standardHTML/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="标准的 HTML 代码标准的 HTML 代码指的是 HTML 代码符合 W3C 的最新标准。
+验证代码是否符合标准一个标准的页面有哪些优点：1. 标准的页面会保证浏览器正确地渲染。
+使用符合标准的 HTML 标签和 CSS 样式，能最大限度的保证页面在不同浏览器正常地进行解析，同时最大限度地保证未来的各种客户端中正常地解析。
+2. 网页能更容易被搜索引擎搜寻，提高网站的排名。
+网络“爬虫”会根据标">
+<meta property="og:updated_time" content="2016-02-25T05:57:18.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML 最佳实践之标准的 HTML 代码">
+<meta name="twitter:description" content="标准的 HTML 代码标准的 HTML 代码指的是 HTML 代码符合 W3C 的最新标准。
+验证代码是否符合标准一个标准的页面有哪些优点：1. 标准的页面会保证浏览器正确地渲染。
+使用符合标准的 HTML 标签和 CSS 样式，能最大限度的保证页面在不同浏览器正常地进行解析，同时最大限度地保证未来的各种客户端中正常地解析。
+2. 网页能更容易被搜索引擎搜寻，提高网站的排名。
+网络“爬虫”会根据标">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> HTML 最佳实践之标准的 HTML 代码 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML 最佳实践之标准的 HTML 代码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-24T22:29:23+08:00" content="2016-02-24">
+              2016-02-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端规范/" itemprop="url" rel="index">
+                    <span itemprop="name">前端规范</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/standardHTML/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/standardHTML/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="u6807_u51C6_u7684_HTML__u4EE3_u7801"><a href="#u6807_u51C6_u7684_HTML__u4EE3_u7801" class="headerlink" title="标准的 HTML 代码"></a>标准的 HTML 代码</h1><p>标准的 HTML 代码指的是 HTML 代码符合 W3C 的最新标准。</p>
+<h2 id="u9A8C_u8BC1_u4EE3_u7801_u662F_u5426_u7B26_u5408_u6807_u51C6"><a href="#u9A8C_u8BC1_u4EE3_u7801_u662F_u5426_u7B26_u5408_u6807_u51C6" class="headerlink" title="验证代码是否符合标准"></a>验证代码是否符合标准</h2><h3 id="u4E00_u4E2A_u6807_u51C6_u7684_u9875_u9762_u6709_u54EA_u4E9B_u4F18_u70B9_uFF1A"><a href="#u4E00_u4E2A_u6807_u51C6_u7684_u9875_u9762_u6709_u54EA_u4E9B_u4F18_u70B9_uFF1A" class="headerlink" title="一个标准的页面有哪些优点："></a>一个标准的页面有哪些优点：</h3><p><strong>1. 标准的页面会保证浏览器正确地渲染</strong>。</p>
+<p>使用符合标准的 HTML 标签和 CSS 样式，能最大限度的保证页面在不同浏览器正常地进行解析，同时最大限度地保证未来的各种客户端中正常地解析。</p>
+<p><strong>2. 网页能更容易被搜索引擎搜寻，提高网站的排名。</strong></p>
+<p>网络“爬虫”会根据标签的语义和标签上的一些属性来判断标签的内容所要表达的意思。</p>
+<p><strong>3. 提高网站的易用性</strong></p>
+<p>让网站能够被更多的用户访问，尤其是一些视力或者肢体障碍用户等所访问。</p>
+<p><strong>4. 网页更好维护和扩展</strong></p>
+<p>页面的多个开发者如果遵循统一的标准，则会更好地理解和维护已有的页面。</p>
+<p><strong>5. HTML 验证工具</strong><br><a href="https://validator.w3.org/" target="_blank" rel="external">W3 Validator</a></p>
+<a id="more"></a>
+<h2 id="u6807_u51C6_u7684_HTML__u9875_u9762_u7ED3_u6784"><a href="#u6807_u51C6_u7684_HTML__u9875_u9762_u7ED3_u6784" class="headerlink" title="标准的 HTML 页面结构"></a>标准的 HTML 页面结构</h2><p>一个基本的 HTML 页面结构是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>head</code> 部分包含整个文档的一些基本信息，如网站的编码格式、网站的标题、网站引用的样式和脚本等。</p>
+<p><code>body</code> 部分包含用户在浏览器中能看到的内容。</p>
+<p>为了使得 HTML 文档能兼容标准格式，还需要给文档添加一个文档类型声明（<code>DTD</code>），当浏览器解析 HTML 文档时会遵循指定的类型声明标准。</p>
+<p>HTML4 的规范中定义了多个规范的文档声明：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Translational//EN"&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 HTML5 的规范中简化了文档类型声明，省略了 DTD 的引用，表明文档以标准模式解析：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!DOCTYPE html</span><br></pre></td></tr></table></figure>
+<p><strong>head 部分</strong></p>
+<p>文档的标题是作为站点的名称和尖端描述显示在浏览器的标题栏上的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>网站标题<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果引用 JavaScript 和 CSS 外部文件，则需要把外部文件的链接添加到 head 部分。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"my_style.css"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>head 部分还会包含一些必要的 <code>meta</code> 标签，是对 HTML 文档内容描述，用来表明文档的编码、关键字、介绍、作者等信息。</p>
+<p>Meta标签给搜索引擎提供了许多关于网页的信息。</p>
+<p>通常情况下，<code>&lt;meta&gt;</code> 标签会包含一个 <code>name属性</code>，用来设置元数据。元数据的值放在 <code>content属性</code> 里面。</p>
+<p>可以在<meta>标签中使用各种 <code>名称/值对</code>。</p>
+<p><strong>Meta Description</strong></p>
+<p>Meta description标签可能是最有用的标签之一。</p>
+<p>顾名思义，它会给搜索引擎提供关于这个网页的简短的描述。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"description"</span> <span class="attribute">content</span>=<span class="value">"Everything you need toknow about meta tags forsearch engine optimization"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Meta Robots</strong></p>
+<p>Meta robots标签管理着搜索引擎是否可以进入网页，你可以用它来允许或不允许搜索引擎来获取你的网页、进入你网页中的子链接或对你的网页存档。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"robots"</span><span class="value">content="noindex,nofollow"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Meta Content Type (charset)</strong></p>
+<p>meta content type标签被用来声明网页的字符编码，为了防止浏览器产生编码问题最好加上这个属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">'Content-Type'</span><span class="value">content='Type=text</span>/<span class="attribute">html</span>; <span class="attribute">charset</span>=<span class="value">utf-8'</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--现在我们也可以使用更简短的、向后兼容的声明模式：--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Meta Keywords</strong></p>
+<p>这个标签在过去很重要，但是现在却没什么价值了。</p>
+<p>现在没有一个主流的搜索引擎使用meta keywords来判断网页的内容了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"keywords"</span> <span class="attribute">content</span>=<span class="value">"meta tags,search engine optimization"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Meta Language</strong></p>
+<p>这个标签之前是用来声明网页的语言的。可以告知屏幕阅读器和其它文本处理器他们正在处理的语言以便更好的工作。</p>
+<p>这就是为什么meta language的content声明为什么可以为fr.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"content-language"</span><span class="value">content="fr"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--W3C推荐使用标签的属性来声明语言--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="u6B63_u786E_u95ED_u5408_HTML__u6807_u7B7E"><a href="#u6B63_u786E_u95ED_u5408_HTML__u6807_u7B7E" class="headerlink" title="正确闭合 HTML 标签"></a>正确闭合 HTML 标签</h2><p>元素可以包含的内容包括其他元素和字符。</p>
+<p>也有一些元素是 <code>空元素</code>，即不能包含任何内容，这些元素对应的 HTML 标签也称为 <code>自闭合标签</code>。</p>
+<p><code>area</code> <code>base</code> <code>br</code> <code>col</code> <code>command</code> <code>embed</code> <code>hr</code> <code>img</code> <code>input</code> <code>keygen</code> <code>link</code> <code>meta</code> <code>param</code> <code>source</code> <code>track</code> <code>wbr</code></p>
+<p>在 HTML5 的规范中，自闭合标签添加 <code>/</code> 和 不添加 <code>/</code> 都符合规范。</p>
+<h2 id="u505C_u6B62_u4F7F_u7528_u4E0D_u6807_u51C6_u7684_u6807_u7B7E_u548C_u5C5E_u6027"><a href="#u505C_u6B62_u4F7F_u7528_u4E0D_u6807_u51C6_u7684_u6807_u7B7E_u548C_u5C5E_u6027" class="headerlink" title="停止使用不标准的标签和属性"></a>停止使用不标准的标签和属性</h2><p>标签和属性不被推荐的原因有以下几个：</p>
+<p><strong>1. 标签没有实际的语义，仅仅用于设置样式</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 不推荐代码：不推荐使用单纯设置样式的标签，应该通过 CSS 设置样式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"blue"</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">big</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">big</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">center</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不推荐在HTML 标签中添加样式属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 不推荐代码：标签中添加 border、width、height 等样式属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"#"</span> <span class="attribute">alt</span>=<span class="value">"demo"</span> <span class="attribute">border</span>=<span class="value">"1"</span> <span class="attribute">width</span>=<span class="value">"194"</span> <span class="attribute">height</span>=<span class="value">"37"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"focusViwer"</span> <span class="attribute">align</span>=<span class="value">"center"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不推荐使用 <code>blink</code> 或 <code>marquee</code>（闪动或滚动）</p>
+<p><strong>2. 让 HTML 标签具有更好地语义</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 不推荐代码：无语义的标签，单纯设置样式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">b</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">i</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">s</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">s</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">strike</span>&gt;</span>don't use it!<span class="tag">&lt;/<span class="title">strike</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>推荐示例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 推荐代码：使用具有语义的标签，如果单纯为了样式，应该使用 CSS 来设置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">strong</span>&gt;</span>important<span class="tag">&lt;/<span class="title">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">em</span>&gt;</span>emphasize<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">del</span>&gt;</span>deleted<span class="tag">&lt;/<span class="title">del</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ins</span>&gt;</span>insert<span class="tag">&lt;/<span class="title">ins</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>3. 移除不常用的 HTML 标签</strong></p>
+<p>废弃的原因是使用率极低或者语义有歧义，并且有其他更好地替代方案。</p>
+<p>表达缩写的标签 <code>&lt;acronym&gt;</code>，语义模糊，用 <code>&lt;abbr&gt;</code> 来替代；</p>
+<p>使用 <code>&lt;li&gt;</code> 来代替 <code>&lt;dir&gt;</code>。</p>
+<h2 id="u6837_u5F0F_u4E0E_u7ED3_u6784_u5206_u79BB"><a href="#u6837_u5F0F_u4E0E_u7ED3_u6784_u5206_u79BB" class="headerlink" title="样式与结构分离"></a>样式与结构分离</h2><p>HTML 和 CSS 所有的组合方式：</p>
+<p><strong>1. 在 HTML 页面中链接一个 CSS 文件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"default.css"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--设置 media 属性来设置来表明样式使用的场景--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"print.css"</span> <span class="attribute">media</span>=<span class="value">"print"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这种模式是最佳实践，做到了 CSS 和 HTML 的完美分离。</p>
+<p><strong>2. 在 HTML 页面中内嵌 CSS 样式</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">body</span> <span class="rules">&#123; &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>一种好的实践：</strong></p>
+<ul>
+<li>在开发阶段，将 CSS 和 HTML 放置于单独的页面中，方便后续的开发和维护。</li>
+<li>当代码发布时，使用工具合并 CSS 和 HTML 代码，提高页面实际运行时的性能。</li>
+</ul>
+<p><strong>3. 在 HTML 标签中添加内联 CSS 样式</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color:green;"</span>&gt;</span>green<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不利于页面的维护与样式的重用</li>
+<li>便于通过 JavaScript 代码动态更改元素样式</li>
+</ul>
+<p><strong>4. 在 CSS 样式文件中加载 CSS 样式文件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import "mystyle.css";</span><br><span class="line">@import url("mystyle.css");</span><br></pre></td></tr></table></figure>
+<h2 id="u6DFB_u52A0_JavaScript__u7981_u7528_u7684_u63D0_u793A_u4FE1_u606F"><a href="#u6DFB_u52A0_JavaScript__u7981_u7528_u7684_u63D0_u793A_u4FE1_u606F" class="headerlink" title="添加 JavaScript 禁用的提示信息"></a>添加 JavaScript 禁用的提示信息</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>浏览器不支持 JavaScript<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最好不要用 <code>&lt;noscript&gt;</code> 标签，而是更改设计，让页面从无脚本模式过渡到有脚本的模式。</p>
+<p>最佳实践是，提示用户 JavaScript 已被禁用，并同时提供一个功能简单、不依赖于 JavaScript 的代替网站供用户继续浏览，做到平稳降级。</p>
+<h2 id="u6DFB_u52A0_u5FC5_u8981_u7684__26lt_3Bmeta_26gt_3B__u6807_u7B7E"><a href="#u6DFB_u52A0_u5FC5_u8981_u7684__26lt_3Bmeta_26gt_3B__u6807_u7B7E" class="headerlink" title="添加必要的 &lt;meta&gt; 标签"></a>添加必要的 <code>&lt;meta&gt;</code> 标签</h2><p><a href="http://www.chinaz.com/web/2016/0111/494040.shtml" target="_blank" rel="external">Meta标签与搜索引擎优化</a></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag">#HTML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/semanticHTML/" rel="prev" title="HTML 最佳实践之高可读性的 HTML">
+                HTML 最佳实践之高可读性的 HTML <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/standardHTML/"
+     data-title="HTML 最佳实践之标准的 HTML 代码"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/standardHTML/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/standardHTML/"
+           data-title="HTML 最佳实践之标准的 HTML 代码" data-url="http://MertensMing.github.io/post/standardHTML/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u6807_u51C6_u7684_HTML__u4EE3_u7801"><span class="nav-number">1.</span> <span class="nav-text">标准的 HTML 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9A8C_u8BC1_u4EE3_u7801_u662F_u5426_u7B26_u5408_u6807_u51C6"><span class="nav-number">1.1.</span> <span class="nav-text">验证代码是否符合标准</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E00_u4E2A_u6807_u51C6_u7684_u9875_u9762_u6709_u54EA_u4E9B_u4F18_u70B9_uFF1A"><span class="nav-number">1.1.1.</span> <span class="nav-text">一个标准的页面有哪些优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6807_u51C6_u7684_HTML__u9875_u9762_u7ED3_u6784"><span class="nav-number">1.2.</span> <span class="nav-text">标准的 HTML 页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6B63_u786E_u95ED_u5408_HTML__u6807_u7B7E"><span class="nav-number">1.3.</span> <span class="nav-text">正确闭合 HTML 标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u505C_u6B62_u4F7F_u7528_u4E0D_u6807_u51C6_u7684_u6807_u7B7E_u548C_u5C5E_u6027"><span class="nav-number">1.4.</span> <span class="nav-text">停止使用不标准的标签和属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6837_u5F0F_u4E0E_u7ED3_u6784_u5206_u79BB"><span class="nav-number">1.5.</span> <span class="nav-text">样式与结构分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6DFB_u52A0_JavaScript__u7981_u7528_u7684_u63D0_u793A_u4FE1_u606F"><span class="nav-number">1.6.</span> <span class="nav-text">添加 JavaScript 禁用的提示信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6DFB_u52A0_u5FC5_u8981_u7684__26lt_3Bmeta_26gt_3B__u6807_u7B7E"><span class="nav-number">1.7.</span> <span class="nav-text">添加必要的 <meta> 标签</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

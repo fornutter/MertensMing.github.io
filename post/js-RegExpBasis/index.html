@@ -1,0 +1,958 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="正则表达式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是正则表达式？
+在编写处理字符串的程序或者网页时，经常会有查找符合某些复杂规则的字符串的需要。
+正则表达式就是用于描述这些规则的工具。
+正则表达式就是记录文本规则的代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式基础笔记">
+<meta property="og:url" content="http://MertensMing.github.io/post/js-RegExpBasis/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="什么是正则表达式？
+在编写处理字符串的程序或者网页时，经常会有查找符合某些复杂规则的字符串的需要。
+正则表达式就是用于描述这些规则的工具。
+正则表达式就是记录文本规则的代码。">
+<meta property="og:image" content="http://static.zybuluo.com/mertens/1v18rfodlmg6wap2wzi5fknv/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160222170800.jpg">
+<meta property="og:updated_time" content="2016-03-06T14:25:20.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式基础笔记">
+<meta name="twitter:description" content="什么是正则表达式？
+在编写处理字符串的程序或者网页时，经常会有查找符合某些复杂规则的字符串的需要。
+正则表达式就是用于描述这些规则的工具。
+正则表达式就是记录文本规则的代码。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 正则表达式基础笔记 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                正则表达式基础笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-06T22:24:20+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/js-RegExpBasis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/js-RegExpBasis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u4EC0_u4E48_u662F_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1F"><a href="#u4EC0_u4E48_u662F_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1F" class="headerlink" title="什么是正则表达式？"></a>什么是正则表达式？</h2><ul>
+<li>在编写处理字符串的程序或者网页时，经常会有查找符合某些复杂规则的字符串的需要。</li>
+<li>正则表达式就是用于描述这些规则的工具。</li>
+<li>正则表达式就是记录文本规则的代码。</li>
+</ul>
+<a id="more"></a>
+<h2 id="u5143_u5B57_u7B26"><a href="#u5143_u5B57_u7B26" class="headerlink" title="元字符"></a>元字符</h2><p><code>\ba\w*\b</code> 匹配以字母 a 开头的单词</p>
+<blockquote>
+<p>先是某个单词的开头处<code>\b</code>，然后是字母 <code>a</code>，然后是任意数量的字母或数字 <code>\w*</code>，最后是单词的结束处 <code>\b</code></p>
+</blockquote>
+<p><code>\d+</code> 匹配一个或者更多连续的数字</p>
+<blockquote>
+<p>这里的 <code>+</code> 和 <code>*</code> 是类似的元字符<br>不同的是，<code>*</code> 匹配重复任意次（可能是0次）<br><code>+</code> 匹配重复更多 1 次或者更多次</p>
+</blockquote>
+<p><code>\bw{6}\b</code> 匹配刚好 6 个字符的单词</p>
+<h3 id="u5E38_u7528_u7684_u5143_u5B57_u7B26"><a href="#u5E38_u7528_u7684_u5143_u5B57_u7B26" class="headerlink" title="常用的元字符"></a>常用的元字符</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">代码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>.</code></td>
+<td style="text-align:left">匹配除换行符以外的任何字符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\w</code></td>
+<td style="text-align:left">匹配字母或数字或下划线或汉字</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\s</code></td>
+<td style="text-align:left">匹配任意的空白符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\d</code></td>
+<td style="text-align:left">匹配数字</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\b</code></td>
+<td style="text-align:left">匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>^</code></td>
+<td style="text-align:left">匹配字符串的开始</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$</code></td>
+<td style="text-align:left">匹配字符串的结束</td>
+</tr>
+</tbody>
+</table>
+<p>比如一个网站要求你填写的 QQ 号必须是 5-12 位的数字时，可以使用 <code>^\d{5,12}$</code>；<br><code>{5,12}</code> 表示重复次数不少于 5 次，不能多于 12 次，否则都不匹配<br><strong>有些正则表达式处理工具还有一个处理多行的选项，如果选中了这个选项，^ 和 $ 的意义就变成了匹配行的开始处和结束处</strong></p>
+<h2 id="u5B57_u7B26_u8F6C_u4E49"><a href="#u5B57_u7B26_u8F6C_u4E49" class="headerlink" title="字符转义"></a>字符转义</h2><p>如果想查找元字符本身的话，就要使用 <code>\</code> 来取消这些字符的特殊意义<br>例如：<code>\.</code> <code>\*</code> <code>\\</code> </p>
+<h2 id="u91CD_u590D"><a href="#u91CD_u590D" class="headerlink" title="重复"></a>重复</h2><p><strong>限定符</strong> – 指定数量的代码</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">代码 / 语法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>*</code></td>
+<td style="text-align:center">重复 0 次或更多次</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">重复一次或更多次</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>？</code></td>
+<td style="text-align:center">重复 0 次或 1 次</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>{n}</code></td>
+<td style="text-align:center">重复 n 次</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>{n,}</code></td>
+<td style="text-align:center">重复 n 次或更多次</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>{n,m}</code></td>
+<td style="text-align:center">重复 n 次到 m 次</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u5B57_u7B26_u7C7B"><a href="#u5B57_u7B26_u7C7B" class="headerlink" title="字符类"></a>字符类</h2><p>匹配没有预定义元字符的字符集合（比如元音字母 a,e,i,o,u）<br>只需要在方括号内列出它们就行了，比如：</p>
+<blockquote>
+<p> <code>[aeiou]</code> 匹配任何一个英文元音字母<br> <code>[.?!]</code> 匹配标点符号（<code>.</code> 或 <code>?</code> 或 <code>!</code>）</p>
+</blockquote>
+<p>下面是更复杂的表达式： <code>\(?0\d{2}[) -]?\d{8}</code></p>
+<p>这个表达式可以匹配几种格式的电话号码，像 <code>(010)88886666</code>，或 <code>022-22334455</code>，或 <code>02912345678</code> 等</p>
+<blockquote>
+<p>首先是一个转义字符 <code>\(</code>，他能出现 1 次或 0 次（<code>?</code>），然后是一个 <code>0</code>，后面跟着两个数字 <code>\d{2}</code>，然后是 <code>)</code> 或 <code>空格</code> 或 <code>-</code> 中的一个，它出现 1 次或不出现 <code>[) -]?</code>，最后是 8 个数字 <code>\d{8}</code></p>
+</blockquote>
+<h2 id="u5206_u652F_u6761_u4EF6"><a href="#u5206_u652F_u6761_u4EF6" class="headerlink" title="分支条件"></a>分支条件</h2><ul>
+<li>正则表达式里面的<strong>分支条件</strong>指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用 <code>|</code> 把不同的规则分隔开。</li>
+<li>使用分支条件时，要注意各个条件的顺序（从左到右，短路匹配）</li>
+</ul>
+<h2 id="u5206_u7EC4"><a href="#u5206_u7EC4" class="headerlink" title="分组"></a>分组</h2><p>重复单个字符，直接在字符后面加上限定符就行了；<br>如果想要重复多个字符，可以用小括号来指定<strong>子表达式</strong>（也叫<strong>分组</strong>），然后可以指定这个<strong>分组</strong>的重复次数，也可以对这个<strong>分组</strong>进行其他的一些操作。</p>
+<h2 id="u53CD_u4E49"><a href="#u53CD_u4E49" class="headerlink" title="反义"></a>反义</h2><h3 id="u5E38_u7528_u7684_u53CD_u4E49_u4EE3_u7801"><a href="#u5E38_u7528_u7684_u53CD_u4E49_u4EE3_u7801" class="headerlink" title="常用的反义代码"></a>常用的反义代码</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">代码 / 语法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>\W</code></td>
+<td style="text-align:center">匹配任意不是字母、数字、下划线以及汉字的字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\S</code></td>
+<td style="text-align:center">匹配任意不是空白符的字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\D</code></td>
+<td style="text-align:center">匹配任意不是数字的字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\B</code></td>
+<td style="text-align:center">匹配不是单词开头或结束的位置</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[^xyz]</code></td>
+<td style="text-align:center">匹配除了 xyz 以外的任意字符</td>
+</tr>
+</tbody>
+</table>
+<p><code>\S+</code> 匹配不包含空白符的字符串<br><code>&lt;a[^&gt;]+&gt;</code> 匹配用尖括号括起来的以 a 开头的字符串</p>
+<h2 id="u540E_u5411_u5F15_u7528"><a href="#u540E_u5411_u5F15_u7528" class="headerlink" title="后向引用"></a>后向引用</h2><ul>
+<li>使用小括号指定一个子表达式之后，<strong>匹配这个子表达式的文本</strong>（也就是分组捕获的内容）可以在表达式或其他程序中作进一步的处理。默认情况下，每个分组会自动拥有一个<strong>组号</strong>，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为 1，第二个为 2，以此类推。 </li>
+<li><strong>后向引用</strong>用于重复搜索前面某个分组匹配的文本。</li>
+<li><code>\1</code> 表示分组 1 匹配的某个文本</li>
+<li><code>\b(w+)\b\s+\1\b</code> 匹配连着的两个重复的单词</li>
+<li>可以<strong>指定子表达式的组名</strong>，语法：<code>(?&lt;Word&gt;\w+)</code> <code>(?&#39;Wrod&#39;\w+)</code> 可以指定组名为 <code>Word</code></li>
+<li>要反向引用这个分组捕获的内容，可以使用 <code>\k&lt;Word&gt;</code></li>
+</ul>
+<p>使用小括号的时候，还有很多特定用途的语法：</p>
+<h3 id="u5E38_u7528_u5206_u7EC4_u8BED_u6CD5"><a href="#u5E38_u7528_u5206_u7EC4_u8BED_u6CD5" class="headerlink" title="常用分组语法"></a>常用分组语法</h3><ul>
+<li><code>正向</code> 和 <code>负向</code> 的意思是断言括号中的内容是匹配还是不匹配</li>
+<li><code>先行</code> 与 <code>回顾</code> 的意思是实际匹配的内容在断言内容的前面还是后面</li>
+</ul>
+<p><img src="http://static.zybuluo.com/mertens/1v18rfodlmg6wap2wzi5fknv/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160222170800.jpg" alt=""></p>
+<h2 id="u96F6_u5BBD_u65AD_u8A00_uFF08zero-length_assertions_uFF09"><a href="#u96F6_u5BBD_u65AD_u8A00_uFF08zero-length_assertions_uFF09" class="headerlink" title="零宽断言（zero-length assertions）"></a>零宽断言（zero-length assertions）</h2><p>零宽的意思是指该位置是不占宽度的，也就是只作断言判断，但不匹配实际的内容；<code>\d(?=\.)</code> 这个正向先行断言就只匹配点号之前的数字，但是它并不会匹配到这个点号，这个 <code>\d(?=\.)</code> 括号中的匹配内容也就是零宽了。</p>
+<pre><code>零宽断言分为四种，分别是：
+
+正向先行(Positive Lookahead)
+
+正向回顾(Positive Lookbehind)
+
+负向先行(Negative Lookahead)
+
+负向回顾(Negative Lookbehind)
+</code></pre><h3 id="u6B63_u5411_u5148_u884C_28Positive_Lookahead_29"><a href="#u6B63_u5411_u5148_u884C_28Positive_Lookahead_29" class="headerlink" title="正向先行(Positive Lookahead)"></a>正向先行(Positive Lookahead)</h3><ul>
+<li>直接地说“零宽正向先行断言”所匹配的就是<strong>必须出现的断言内容的前面的内容</strong></li>
+</ul>
+<h3 id="u6B63_u5411_u56DE_u987E_28Positive_Lookbehind_29"><a href="#u6B63_u5411_u56DE_u987E_28Positive_Lookbehind_29" class="headerlink" title="正向回顾(Positive Lookbehind)"></a>正向回顾(Positive Lookbehind)</h3><ul>
+<li>理解了前面这个“零宽正向先行断言”，随之而来的就比较好理解了。依照这个逻辑，零宽正向回顾断言所匹配的是必须出现的断言内容之后的内容，它的语法是：<code>(?&lt;=...)</code> 比如 <code>（?&lt;＝\.）\w</code> 所匹配的就是点号之后的 <code>ASCII</code> 字符。</li>
+</ul>
+<h3 id="u8D1F_u5411_u5148_u884C_28Negative_Lookahead_29"><a href="#u8D1F_u5411_u5148_u884C_28Negative_Lookahead_29" class="headerlink" title="负向先行(Negative Lookahead)"></a>负向先行(Negative Lookahead)</h3><ul>
+<li>负向与正向意思相反， 正向是断言内容必须出现，而负向则是断言内容必须不出现。</li>
+</ul>
+<h3 id="u8D1F_u5411_u56DE_u987E_28Negative_Lookbehind_29"><a href="#u8D1F_u5411_u56DE_u987E_28Negative_Lookbehind_29" class="headerlink" title="负向回顾(Negative Lookbehind)"></a>负向回顾(Negative Lookbehind)</h3><ul>
+<li>正负向与先行回顾的概念都已在前面列出， 负向回顾的理解应该就很顺了。负向回顾的语法是：<code>(?&lt;!...)</code>。 比如 <code>(?&lt;!Java)Script</code> 该正则只匹配不是 JavaScript 的 Script，它就能正确匹配 ECMAScript 和 Script。</li>
+</ul>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/js-regexp/" rel="next" title="JS 中的正则表达式">
+                <i class="fa fa-chevron-left"></i> JS 中的正则表达式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/js-TypeDetection/" rel="prev" title="类型识别的四个方法">
+                类型识别的四个方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/js-RegExpBasis/"
+     data-title="正则表达式基础笔记"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/js-RegExpBasis/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/js-RegExpBasis/"
+           data-title="正则表达式基础笔记" data-url="http://MertensMing.github.io/post/js-RegExpBasis/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4EC0_u4E48_u662F_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">什么是正则表达式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5143_u5B57_u7B26"><span class="nav-number">2.</span> <span class="nav-text">元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E38_u7528_u7684_u5143_u5B57_u7B26"><span class="nav-number">2.1.</span> <span class="nav-text">常用的元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u8F6C_u4E49"><span class="nav-number">3.</span> <span class="nav-text">字符转义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u91CD_u590D"><span class="nav-number">4.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u7C7B"><span class="nav-number">5.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5206_u652F_u6761_u4EF6"><span class="nav-number">6.</span> <span class="nav-text">分支条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5206_u7EC4"><span class="nav-number">7.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53CD_u4E49"><span class="nav-number">8.</span> <span class="nav-text">反义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E38_u7528_u7684_u53CD_u4E49_u4EE3_u7801"><span class="nav-number">8.1.</span> <span class="nav-text">常用的反义代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u540E_u5411_u5F15_u7528"><span class="nav-number">9.</span> <span class="nav-text">后向引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E38_u7528_u5206_u7EC4_u8BED_u6CD5"><span class="nav-number">9.1.</span> <span class="nav-text">常用分组语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u96F6_u5BBD_u65AD_u8A00_uFF08zero-length_assertions_uFF09"><span class="nav-number">10.</span> <span class="nav-text">零宽断言（zero-length assertions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6B63_u5411_u5148_u884C_28Positive_Lookahead_29"><span class="nav-number">10.1.</span> <span class="nav-text">正向先行(Positive Lookahead)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6B63_u5411_u56DE_u987E_28Positive_Lookbehind_29"><span class="nav-number">10.2.</span> <span class="nav-text">正向回顾(Positive Lookbehind)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8D1F_u5411_u5148_u884C_28Negative_Lookahead_29"><span class="nav-number">10.3.</span> <span class="nav-text">负向先行(Negative Lookahead)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8D1F_u5411_u56DE_u987E_28Negative_Lookbehind_29"><span class="nav-number">10.4.</span> <span class="nav-text">负向回顾(Negative Lookbehind)</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
