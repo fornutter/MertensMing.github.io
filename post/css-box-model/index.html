@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Mertens, 前端, web, 博客" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mertens Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="基本视觉格式化基本框元素框CSS 假定诶个元素都会生成一个或多个矩形框，这称为元素框。
+各元素框中心有一个内容区(content area)，这个内容区周围有 可选的内边距、边框和外边距（因为宽度可设置为 0）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 盒模型">
+<meta property="og:url" content="http://MertensMing.github.io/post/css-box-model/index.html">
+<meta property="og:site_name" content="Mertens Blog">
+<meta property="og:description" content="基本视觉格式化基本框元素框CSS 假定诶个元素都会生成一个或多个矩形框，这称为元素框。
+各元素框中心有一个内容区(content area)，这个内容区周围有 可选的内边距、边框和外边距（因为宽度可设置为 0）。">
+<meta property="og:image" content="http://MertensMing.github.io/1.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/2.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/3.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/4.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/5.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/6.jpg">
+<meta property="og:image" content="http://MertensMing.github.io/7.jpg">
+<meta property="og:updated_time" content="2016-03-16T15:49:13.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 盒模型">
+<meta name="twitter:description" content="基本视觉格式化基本框元素框CSS 假定诶个元素都会生成一个或多个矩形框，这称为元素框。
+各元素框中心有一个内容区(content area)，这个内容区周围有 可选的内边距、边框和外边距（因为宽度可设置为 0）。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS 盒模型 | Mertens Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mertens Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">少年，答应别人的承诺，就一定要做到</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS 盒模型
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-16T11:44:31+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/post/css-box-model/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/css-box-model/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u57FA_u672C_u89C6_u89C9_u683C_u5F0F_u5316"><a href="#u57FA_u672C_u89C6_u89C9_u683C_u5F0F_u5316" class="headerlink" title="基本视觉格式化"></a>基本视觉格式化</h2><h3 id="u57FA_u672C_u6846"><a href="#u57FA_u672C_u6846" class="headerlink" title="基本框"></a>基本框</h3><h4 id="u5143_u7D20_u6846"><a href="#u5143_u7D20_u6846" class="headerlink" title="元素框"></a>元素框</h4><p>CSS 假定诶个元素都会生成一个或多个矩形框，这称为元素框。</p>
+<p>各元素框中心有一个内容区(content area)，这个内容区周围有 <strong>可选</strong>的内边距、边框和外边距（因为宽度可设置为 0）。</p>
+<a id="more"></a>
+<p><img src="1.jpg" title="内容区及其外围项"></p>
+<p>内容区的背景（某种颜色和平铺图像）都会延伸到内边距，不能是负值。</p>
+<p>外边距是透明的，可以是负值。</p>
+<p>边框如果没有设置颜色，就显示元素内文本的颜色。</p>
+<h4 id="u5305_u542B_u5757"><a href="#u5305_u542B_u5757" class="headerlink" title="包含块"></a>包含块</h4><p>包含块是由最近的块级祖先框、表单元格或行内块祖先框的<code>内容边界（content edge）</code>构成。</p>
+<p>行内元素额摆放方式不直接依赖于包含块。</p>
+<h5 id="u975E_u66FF_u6362_u5143_u7D20"><a href="#u975E_u66FF_u6362_u5143_u7D20" class="headerlink" title="非替换元素"></a>非替换元素</h5><p>元素的内容包含在文档中。</p>
+<h5 id="u66FF_u6362_u5143_u7D20"><a href="#u66FF_u6362_u5143_u7D20" class="headerlink" title="替换元素"></a>替换元素</h5><p>作为其他内容占位符的一个元素。例如 <code>&lt;img&gt;</code></p>
+<h3 id="u5757_u7EA7_u5143_u7D20"><a href="#u5757_u7EA7_u5143_u7D20" class="headerlink" title="块级元素"></a>块级元素</h3><p><img src="2.jpg" alt=""></p>
+<h4 id="u6C34_u5E73_u683C_u5F0F_u5316"><a href="#u6C34_u5E73_u683C_u5F0F_u5316" class="headerlink" title="水平格式化"></a>水平格式化</h4><p><code>width</code> 影响的是内容区的宽度。</p>
+<p><code>width</code> <code>margin-left</code> <code>margin-right</code> 可以设置为 <code>auto</code></p>
+<h5 id="u4F7F_u7528_auto"><a href="#u4F7F_u7528_auto" class="headerlink" title="使用 auto"></a>使用 auto</h5><p>如果这三个属性都设置为非 <code>auto</code> 的某个值（overconstrained），此时 <code>margin-right</code> 强制设置为 <code>auto</code>，使元素的总宽度等于其包含块的 <code>width</code>。</p>
+<p>如果两个外边距显式设置，而 <code>width</code> 设置为 <code>auto</code>，<code>width</code> 将自动设置为所需的某个值，达到父元素的内容宽度。</p>
+<p><code>width</code> 设置定宽，两个外边距都设置为 <code>auto</code>，它们会设置为相等的长度，元素就会在其父元素居中。</p>
+<h5 id="u8D1F_u5916_u8FB9_u8DDD"><a href="#u8D1F_u5916_u8FB9_u8DDD" class="headerlink" title="负外边距"></a>负外边距</h5><p>7 个水平属性的总和要等于父元素的 <code>width</code>。</p>
+<h6 id="u53F3_u8D1F_u5916_u8FB9_u8DDD"><a href="#u53F3_u8D1F_u5916_u8FB9_u8DDD" class="headerlink" title="右负外边距"></a>右负外边距</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">400px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.child</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> -<span class="number">50px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="3.jpg" title="通过指定负外边距得到更宽的子元素"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10px + 0 + 0 + 440px + 0 + 0 - 50px = 400px</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">400px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.child</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>当元素水平属性过分受限时，即使 <code>margin-right</code> 指定了另外一个值，也会要求重置 <code>margin-right</code>，此时 <code>margin-right</code> 为 <code>-110px</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10px + 0 + 0 + 500px + 0 + 0 - 110px = 400px</span><br></pre></td></tr></table></figure>
+<h6 id="u5DE6_u8D1F_u5916_u8FB9_u8DDD"><a href="#u5DE6_u8D1F_u5916_u8FB9_u8DDD" class="headerlink" title="左负外边距"></a>左负外边距</h6><p>如果左负外边距为负，不仅段落会超出 div 的边框，还会超出浏览器窗口本身的边界！</p>
+<p><img src="4.jpg" title="设置一个左负外边距"></p>
+<h5 id="u767E_u5206_u6570"><a href="#u767E_u5206_u6570" class="headerlink" title="百分数"></a>百分数</h5><p><code>width</code> 、<code>padding</code>、<code>margin</code> 都可以设置为百分数，参照物是父元素；<br><code>border</code> 不能设置为百分数，只能是长度。</p>
+<h5 id="u66FF_u6362_u5143_u7D20-1"><a href="#u66FF_u6362_u5143_u7D20-1" class="headerlink" title="替换元素"></a>替换元素</h5><p><code>width</code> 为 <code>auto</code>，元素的宽度则是内容的固有宽度。</p>
+<p>如果一个替换元素的 <code>width</code> 不同于其固有宽度，那么 <code>height</code> 值也会成比例变化，除非 <code>height</code> 自己也显式设置为一个特定的值。</p>
+<h4 id="u5782_u76F4_u683C_u5F0F_u5316"><a href="#u5782_u76F4_u683C_u5F0F_u5316" class="headerlink" title="垂直格式化"></a>垂直格式化</h4><p>一个元素的默认高度由其内容决定。</p>
+<p>如果设置的高度小于显示内容所需要的高度，浏览器会提供某种方法来查看所有内容，而不是增加元素框的高度；用户代理的具体行为取决于 <code>overflow</code> 属性的值。</p>
+<p>如果将一个元素的上、下外边距设置为 <code>auto</code>，实际上它们都会重置为 <code>0</code>，使元素没有外边距。</p>
+<h5 id="u767E_u5206_u6570_u9AD8_u5EA6"><a href="#u767E_u5206_u6570_u9AD8_u5EA6" class="headerlink" title="百分数高度"></a>百分数高度</h5><p>如果一个块级正常流元素的 <code>height</code> 设置为一个百分数，则参照物是父元素的 <code>height</code></p>
+<p>如果没有显式声明父元素的 <code>height</code>，百分数高度会重置为 <code>auto</code>。</p>
+<h5 id="auto__u9AD8_u5EA6"><a href="#auto__u9AD8_u5EA6" class="headerlink" title="auto 高度"></a>auto 高度</h5><p>如果块级正常流元素的高度设置为 auto，其默认高度正好包裹所有子元素。</p>
+<h5 id="u5408_u5E76_u5782_u76F4_u5916_u8FB9_u8DDD"><a href="#u5408_u5E76_u5782_u76F4_u5916_u8FB9_u8DDD" class="headerlink" title="合并垂直外边距"></a>合并垂直外边距</h5><p>如果相邻有多个外边距，也会出现合并。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ul</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">15px</span></span></span>; &#125;</span></span><br><span class="line"><span class="tag">li</span> <span class="rules">&#123; </span><br><span class="line">    <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">h1</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">28px</span></span></span>; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*这个例子会出现三个垂直外边距的合并*/</span></span><br></pre></td></tr></table></figure>
+<p><img src="5.jpg" alt="" title="合并外边距详解"></p>
+<p>如果在父元素上设置边框或内边距，会使其子元素的外边距包含着父元素内。</p>
+<p>这样的话，就只会在 <code>ul</code> 和 <code>h1</code> 之间发生外边距合并。</p>
+<p><img src="6.jpg" alt="" title="增加边框后的合并"></p>
+<h5 id="u8D1F_u5916_u8FB9_u8DDD-1"><a href="#u8D1F_u5916_u8FB9_u8DDD-1" class="headerlink" title="负外边距"></a>负外边距</h5><p>如果两个垂直负外边距合并，浏览器会选取两个外边距绝对值最大的值。</p>
+<p>如果一个正外边距和一个负外边距合并，选取的值就是 <strong>正外边距</strong> - <strong>负外边距的绝对值</strong></p>
+<h3 id="u884C_u5185_u5143_u7D20"><a href="#u884C_u5185_u5143_u7D20" class="headerlink" title="行内元素"></a>行内元素</h3><h4 id="u57FA_u672C_u672F_u8BED_u548C_u6982_u5FF5"><a href="#u57FA_u672C_u672F_u8BED_u548C_u6982_u5FF5" class="headerlink" title="基本术语和概念"></a>基本术语和概念</h4><p><strong>匿名文本（anonymous text）</strong><br>所有未包含在行内元素中的字符串，空格也算。</p>
+<p><strong>字符框（character box）</strong><br>也称为 <code>em</code> 框，<code>font-size</code> 确定各字符框的高度，实际字形可能比其字符框更高或更矮。</p>
+<p><strong>内容区</strong><br>对于非替换元素，所有字符框串在一起构成的框。<br>对于替换元素，内容区就是元素的固有高度加上可能有的 <code>padding</code>、<code>border</code>、<code>margin</code> 的值。</p>
+<p><strong>行间距（leading）</strong><br><code>font-size</code>值 和 <code>line-height</code>值之差。</p>
+<p><strong>行内框</strong><br>对于非替换元素，行内框高度刚好等于 <code>line-height</code> 的值；<br>对于替换元素，行内框刚好等于内容区的高度，因为 <code>line-height</code> 影响不到替换元素。</p>
+<p><strong>行框</strong><br>它的高度刚好包含该行中出现的最高的行内框，和最低点的最小框。</p>
+<h4 id="u884C_u5185_u66FF_u6362_u5143_u7D20"><a href="#u884C_u5185_u66FF_u6362_u5143_u7D20" class="headerlink" title="行内替换元素"></a>行内替换元素</h4><p>行内替换元素只是会让行框额高度刚好能包含替换元素，而不会改变行高。</p>
+<p><img src="7.jpg" alt="" title="替换元素可以增加行框的高度，但不影响line-height值"></p>
+<h5 id="u66FF_u6362_u5143_u7D20_u4E8E_u57FA_u7EBF"><a href="#u66FF_u6362_u5143_u7D20_u4E8E_u57FA_u7EBF" class="headerlink" title="替换元素于基线"></a>替换元素于基线</h5><p>默认地，行内替换元素位于基线上。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/layout-3columns/" rel="next" title="三栏式布局">
+                <i class="fa fa-chevron-left"></i> 三栏式布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="post/css-box-model/"
+     data-title="CSS 盒模型"
+     data-content=""
+     data-url="http://MertensMing.github.io/post/css-box-model/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/css-box-model/"
+           data-title="CSS 盒模型" data-url="http://MertensMing.github.io/post/css-box-model/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mertens" />
+          <p class="site-author-name" itemprop="name">Mertens</p>
+          <p class="site-description motion-element" itemprop="description">不资深的尤文球迷</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MertensMing" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mertens" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SegmentFault
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u89C6_u89C9_u683C_u5F0F_u5316"><span class="nav-number">1.</span> <span class="nav-text">基本视觉格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u6846"><span class="nav-number">1.1.</span> <span class="nav-text">基本框</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5143_u7D20_u6846"><span class="nav-number">1.1.1.</span> <span class="nav-text">元素框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5305_u542B_u5757"><span class="nav-number">1.1.2.</span> <span class="nav-text">包含块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u975E_u66FF_u6362_u5143_u7D20"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">非替换元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u66FF_u6362_u5143_u7D20"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">替换元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5757_u7EA7_u5143_u7D20"><span class="nav-number">1.2.</span> <span class="nav-text">块级元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u6C34_u5E73_u683C_u5F0F_u5316"><span class="nav-number">1.2.1.</span> <span class="nav-text">水平格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u4F7F_u7528_auto"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">使用 auto</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u8D1F_u5916_u8FB9_u8DDD"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">负外边距</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#u53F3_u8D1F_u5916_u8FB9_u8DDD"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">右负外边距</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#u5DE6_u8D1F_u5916_u8FB9_u8DDD"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">左负外边距</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u767E_u5206_u6570"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">百分数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u66FF_u6362_u5143_u7D20-1"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">替换元素</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5782_u76F4_u683C_u5F0F_u5316"><span class="nav-number">1.2.2.</span> <span class="nav-text">垂直格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u767E_u5206_u6570_u9AD8_u5EA6"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">百分数高度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#auto__u9AD8_u5EA6"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">auto 高度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u5408_u5E76_u5782_u76F4_u5916_u8FB9_u8DDD"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">合并垂直外边距</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u8D1F_u5916_u8FB9_u8DDD-1"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">负外边距</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u884C_u5185_u5143_u7D20"><span class="nav-number">1.3.</span> <span class="nav-text">行内元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u57FA_u672C_u672F_u8BED_u548C_u6982_u5FF5"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本术语和概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u884C_u5185_u66FF_u6362_u5143_u7D20"><span class="nav-number">1.3.2.</span> <span class="nav-text">行内替换元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u66FF_u6362_u5143_u7D20_u4E8E_u57FA_u7EBF"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">替换元素于基线</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mertens</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mertens"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
